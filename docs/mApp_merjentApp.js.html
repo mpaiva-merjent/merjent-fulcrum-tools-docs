@@ -1,0 +1,795 @@
+<!-- start:source.tmpl.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>mApp/merjentApp.js</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"Merjent Fulcrum Tools","systemSummary":"Version 0.5.9","systemLogo":"","systemColor":"","navMembers":[{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"class","title":"Classes","summary":"All documented classes. View inheritance chains in each class description."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Mtools Copyright © 2025 Mikel Paiva","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":false,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"lineage, longname","search":true,"favicon":null,"stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":true,"default":{"outputSourceFiles":false}};
+			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					Merjent Fulcrum Tools
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="DataEventHelpers.html">DataEventHelpers</a></li>
+											<li><a href="FieldHelpers.html">FieldHelpers</a></li>
+											<li><a href="FieldHelpers.MfldColl.html">FieldHelpers.MfldColl</a></li>
+											<li><a href="FieldHelpers.MfldTypes.html">FieldHelpers.MfldTypes</a></li>
+											<li><a href="FulcrumHelpers.html">FulcrumHelpers</a></li>
+											<li><a href="MerjentApp.html">MerjentApp</a></li>
+											<li><a href="Mfld.html">Mfld</a></li>
+											<li><a href="MLoadRecords.html">MLoadRecords</a></li>
+											<li><a href="MRequest.html">MRequest</a></li>
+											<li><a href="MRequest.html">MRequest</a></li>
+											<li><a href="ReportHelpers.html">ReportHelpers</a></li>
+											<li><a href="ReportHelpers.SecOpt.html">ReportHelpers.SecOpt</a></li>
+											<li><a href="RequestHelpers.html">RequestHelpers</a></li>
+											<li><a href="Utils.html">Utils</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_module.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-MtoolsDataEvents.html">MtoolsDataEvents</a></li>
+											<li><a href="module-MtoolsMerjentApp.html">MtoolsMerjentApp</a></li>
+											<li><a href="module-MtoolsReports.html">MtoolsReports</a></li>
+											<li><a href="module-MtoolsUtils.html">MtoolsUtils</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="DefaultTemplate.html">DefaultTemplate</a></li>
+											<li><a href="LockingMixins.html">LockingMixins</a></li>
+											<li><a href="PermissionMixins.html">PermissionMixins</a></li>
+											<li><a href="PhotoMixins.html">PhotoMixins</a></li>
+											<li><a href="StatusMixins.html">StatusMixins</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_tutorial.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="tutorial-01_overview.html">01: Overview</a></li>
+											<li><a href="tutorial-02_mtools.html">02: Mtools for Data Events</a></li>
+											<li><a href="tutorial-03_mapp.html">03: MerjentApp (mApp)</a></li>
+											<li><a href="tutorial-04_pdf-reports.html">04: Mtools for PDF Reports</a></li>
+											<li><a href="tutorial-A1_mapp-cheat-sheet.html">A1: mApp Cheat Sheet</a></li>
+											<li><a href="tutorial-A2_mloadrecords.html">A2: MLoadRecords</a></li>
+											<li><a href="tutorial-A3_report-template-cheatsheet.html">A3: Report Template Cheat Sheet</a></li>
+											<li><a href="tutorial-B1_merjent-dev.html">B1: Development Guide</a></li>
+											<li><a href="tutorial-B2_general-dev.html">B2: General Development Resources</a></li>
+											<li><a href="tutorial-Z1_CHANGELOG.html">Changelog</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">source</span>
+				<h1><span class="name">mApp/merjentApp.js</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">import { DefaultTemplate } from './templates/DefaultTemplate';
+import { StatusMixins } from './mixins/StatusMixins';
+import { PermissionMixins } from './mixins/PermissionMixins';
+
+//#region ********************************** MERJENT APP SETTINGS OBJECT ***************************************
+/**
+ * @class MerjentApp
+ * @description Framework for managing common data events in Merjent Fulcrum apps using a composable template system.
+ *
+ * ## Architecture
+ *
+ * MerjentApp uses a **template + mixin pattern** for composability:
+ * - **Mixins** (`./mixins/`): Reusable method collections organized by concern (status, permissions, locking, photos)
+ * - **Templates** (`./templates/`): Functions that compose mixins into complete app behaviors
+ *
+ * **Important:** The methods defined in this class are **placeholder stubs**. The actual implementations
+ * are provided by mixins and bound to the instance at runtime via {@link DefaultTemplate} or a custom template.
+ *
+ * ## File Structure
+ *
+ * ```
+ * src/mApp/
+ * ├── MerjentApp.js              # This file - class definition with property defaults and method stubs
+ * ├── templates/
+ * │   └── DefaultTemplate.js     # Default template that binds mixin methods to the app
+ * └── mixins/
+ *     ├── StatusMixins.js        # Status calculation methods (draft_complete, p_s_complete, etc.)
+ *     ├── PermissionMixins.js    # Permission methods (fourTier, standardUpdate, etc.)
+ *     ├── LockingMixins.js       # Field locking methods (checkLockStatus, standardLockEditing, etc.)
+ *     └── PhotoMixins.js         # Photo validation methods (standardValidation, limitCaption, etc.)
+ * ```
+ *
+ * ## How It Works
+ *
+ * 1. `new MerjentApp()` creates an instance with default property values
+ * 2. Constructor calls `install_template(DefaultTemplate)` automatically
+ * 3. The template binds mixin methods to the instance, replacing the placeholder stubs
+ * 4. Your data event code uses the configured instance
+ *
+ * ## Available Mixins
+ *
+ * | Mixin | Methods | Description |
+ * |-------|---------|-------------|
+ * | {@link StatusMixins} | `draft_complete`, `p_s_complete`, `active_resolved`, etc. | Status calculation based on field values |
+ * | {@link PermissionMixins} | `fourTier`, `standardUpdate`, `hideCoordInit` | User permission levels and restrictions |
+ * | {@link LockingMixins} | `checkLockStatus`, `standardLockEditing`, `checkCompleteLockStatus` | Field locking logic |
+ * | {@link PhotoMixins} | `standardValidation`, `limitCaption`, `validateAllPhotos` | Photo validation |
+ *
+ * ## Default Template Bindings
+ *
+ * The {@link DefaultTemplate} binds these mixin methods:
+ * - `getStatus` ← {@link StatusMixins.draft_complete}
+ * - `getPermissions` ← {@link PermissionMixins.fourTier}
+ * - `baseUpdatePermission` ← {@link PermissionMixins.standardUpdate}
+ * - `getLockStatus` ← {@link LockingMixins.checkLockStatus}
+ * - `getCompleteLockStatus` ← {@link LockingMixins.checkCompleteLockStatus}
+ * - `baseLockEditing` ← {@link LockingMixins.standardLockEditing}
+ * - `validatePhoto` ← {@link PhotoMixins.standardValidation}
+ * - `limitCaption` ← {@link PhotoMixins.limitCaption}
+ * - `validateAllPhotos` ← {@link PhotoMixins.validateAllPhotos}
+ *
+ * ## Creating Custom Templates
+ *
+ * Create a new template by importing mixins and binding them to the app instance:
+ *
+ * @example
+ * // templates/MyCustomTemplate.js
+ * import { StatusMixins } from '../mixins/StatusMixins';
+ * import { PermissionMixins } from '../mixins/PermissionMixins';
+ *
+ * export function MyCustomTemplate(app) {
+ *   // Use 3-state status instead of default 2-state
+ *   app.getStatus = StatusMixins.p_s_complete.bind(app);
+ *   app.fieldLockCondition = ['Submitted', 'Complete'];
+ *
+ *   // Use standard permission system
+ *   app.getPermissions = PermissionMixins.fourTier.bind(app);
+ *   app.baseUpdatePermission = PermissionMixins.standardUpdate.bind(app);
+ *
+ *   // ... add composite methods like start(), updatePermission(), etc.
+ * }
+ *
+ * // In your data event:
+ * const mApp = new MerjentApp();
+ * mApp.install_template(MyCustomTemplate);
+ *
+ * ## Configuration
+ *
+ * To turn off fieldLock and completeLock:
+ * @example
+ * mApp.completeLockCondition = []
+ * mApp.fieldLockCondition = []
+ *
+ * To turn off updateStatus:
+ * @example
+ * mApp.dnSubmit = null
+ */
+class MerjentApp {
+  constructor() {
+
+    // MERJENT APP PERMISSION PROPERTIES
+    /** 
+     * @description - Disable creation of new records except for certain permission levels.
+     * Set this.newRecordCreators to the user level(s) that is allowed to create new records.
+     * @default - false
+     * @type {boolean}
+     */
+    this.restrictNewRecords = false;
+
+    /** 
+     * @description - Permission levels allowed to create new records.
+     * @default - ['Admin']
+     * @type {string}
+     */
+    this.newRecordCreators = ['Admin'];
+
+    /**
+     * @description - Array of user names to have "Admin" privleges in this app.
+     * @default - ['Jason Hendricks', 'Amanda Johnson', 'Mikel Paiva']
+     * @type {string[]}
+     */
+    this.adminNames = ['Jason Hendricks', 'Amanda Johnson'];
+
+    /**
+     * @description - Array of user names to have "Editor" privleges in this app.
+     * @default - []
+     * @type {string[]}
+     */
+    this.editorNames = [];
+    
+    /**
+     * @description - Array of user names to have "User" privleges in this app.
+     * @default - []
+     * @type {string[]}
+     */
+    this.userNames = [];
+
+    /**
+     * @description - Array of user names to have "Viewer" privleges in this app.
+     * 
+     * The default getPermissions() method places all users not listed in another permission level in this category.
+     * @default - ['Field User 1', 'Field User 2']
+     * @type {string[]}
+     */
+    this.viewerNames = ['Field User 1', 'Field User 2'];
+
+    /**
+     * @description - Array of Fulcrum user roles to have "Admin" privleges in this app.
+     * @default - []
+     * @type {string[]}
+     */
+    this.adminRoles = [];
+
+    /**
+     * @description - Array of Fulcrum user roles to have "Editor" privleges in this app.
+     * @default - []
+     * @type {string[]}
+     */
+    this.editorRoles = [];
+
+    /**
+     * @description - Array of Fulcrum user roles to have "User" privleges in this app.
+     * @default - []
+     * @type {string[]}
+     */
+    this.userRoles = [];
+
+    /**
+     * @description - Array of Fulcrum user roles to have "Viewer" privleges in this app.
+     * @default - []
+     * @type {string[]}
+     */
+    this.viewerRoles = [];
+
+
+    // MERJENT APP OTHER PROPERTIES
+    /**
+     * @description - Option to check for fieldLock on load.
+     * @default - true
+     * @type {boolean}
+     */
+    this.lockOnLoad = true;
+
+
+    this.updateStatusOnLoad = true;
+
+    /**
+     * @summary - The default permission level for users that are not specified as being under a specific permission level.
+     * @description - Possible values are 'Admin', 'Editor', 'User', 'Viewer'.
+     * @default - 'User'
+     * @type {string}
+     * 
+     */
+    this.defaultPermissionLevel = 'User';
+
+
+    // MERJENT APP PHOTO PROPERTIES
+    /**
+     * @description - Max characters allowed in a photo caption
+     * @default - 1258
+     * @type {number}
+     */
+    this.photoCapMax = 1258
+
+    /**
+     * @description - Option to force landscape format for the photo field with data name mApp.dnPhotoLoc
+     * @default - false
+     * @type {boolean}
+     */
+    this.requireLandscape = false;
+
+    /**
+     * @description - Option to set the record location to the location of the first photo taken from photo field with data name mApp.dnPhotoLoc
+     * @default - false
+     * @type {boolean}
+     */
+    this.setLocoff1photo = false;
+
+    /**
+     * @description - Disable location editing for User and Editor. Checked in default updatePermission method. Calls M.disableLocationEdit()
+     * @default - false
+     * @type {boolean}
+     */
+    this.disableLocationEdit = false;
+
+    /**
+     * @description - Data name of the auto-name field. Set to null to disable auto-naming.
+     * @default - null
+     * @type {string|null}
+     */
+    this.dnAutoName = null;
+
+    // MERJENT APP DATA NAME PROPERTIES
+    /**
+     * @description - Data name of the primary report date field.
+     * @default - 'date'
+     * @type {string}
+     */
+    this.dnDt = 'date';
+
+    /**
+     * @description - Data name of the due date field.
+     * @default - 'due_date'
+     * @type {string}
+     */
+    this.dnDueDate = 'due_date';
+
+    /**
+     * @description - Data name of the report id field.
+     * @default - 'report_id'
+     * @type {string}
+     */
+    this.dnReportID = 'report_id';
+
+    /**
+     * @description - Data name of the follow=up required y/n field.
+     * @default - 'report_id'
+     * @type {string}
+     */
+    this.dnFollowUp = 'follow_up_required';
+
+    /**
+     * @description - Data name of the follow-up resolved field. Could be a y/n field or a date field.
+     * @default - 'resolved_date'
+     * @type {string}
+     */
+    this.dnResolved = 'resolved_date';
+
+    /**
+     * @description - Data name of the follow-up repeatable field.
+     * @default - 'follow_up_report'
+     * @type {string}
+     */
+    this.dnFollowUpRepeatable = 'follow_up_report';
+
+    /**
+     * @description - Data name of the 'submit_report' field. Default status functions are checking for value of 'yes'. Turns on field lock.
+     * If you are not using the updateStatus data event set this to null.
+     * @example
+     * mApp.dnSubmit = null //Turns off updatStatus Method.
+     * @default - 'submit_report'
+     * @type {string}
+     */
+    this.dnSubmit = 'submit_report';
+
+    this.dnReviewed1 = '';
+
+    /**
+     * @description - Data name of the 'coordinator_reviewed' field. Default status functions are checking for value of 'yes'. Turns on complete lock.
+     * @default - 'coordinator_reviewed'
+     * @type {string}
+     */
+    this.dnReviewed = 'coordinator_reviewed';
+
+    this.dnCoordinatorInitials1 = '';
+
+    /**
+     * @description - Data name of the 'dnCoordinatorInitials' field. Signed with coordinator initials when mApp.dnReviewed gets checked 'yes'
+     * @default - 'coordinator_reviewed'
+     * @type {string}
+     */
+    this.dnCoordinatorInitials = 'coordinator_initials';
+
+    /**
+     * @description - Data name of the photo field to use for setting record location and also landscape validation.
+     * @default - 'site_photos'
+     * @type {string}
+     */
+    this.dnPhotoLoc = 'site_photos';
+
+    /**
+     * @description - Array of photo names to check for missing captions and exceeding max character limit.
+     * @default - 'site_photos'
+     * @type {Array}
+     */
+    this.allPhotos = ['site_photos']
+
+    /**
+     * @description Array of status values to match for turning on complete record lock.
+     * 
+     * To turn off complete lock use empty array [].
+     * @type {string[]}
+     * @default - ['Complete', 'Resolved']
+     * @example mApp.completeLockCondition = []
+     */
+    this.completeLockCondition = ['Complete', 'Resolved']
+
+    /**
+     * @description Array of data names to exclude from read-only status when complete lock is on.
+     * @type {string[]}
+     * @default - [this.dnSubmit,this.dnReviewed]
+     */
+    this.completeLockExclude = [this.dnSubmit,this.dnReviewed]
+
+    /**
+     * @description Array of status values to match for turning on field lock.
+     * 
+     * To turn off field lock use empty array [].
+     * @type {string[]}
+     * @default - ['Submitted']
+     * @example mApp.fieldLockCondition = []
+     */
+    this.fieldLockCondition = ['Submitted'];
+
+    /**
+     * @description Array of data names to exclude from read-only status when field lock is on.
+     * @type {string[]}
+     * @default - [this.dnSubmit]
+     */
+    this.fieldLockExclude = [this.dnSubmit];
+
+    this.install_template()
+  }
+
+  /**
+   * @description Installs an app template, binding all template methods to this MerjentApp instance.
+   *
+   * Templates are functions that configure the app by binding mixin methods and setting defaults.
+   * See {@link MerjentApp.DefaultTemplate} for the default template implementation.
+   *
+   * @param {Function} [template=DefaultTemplate] - Template function to install. Defaults to DefaultTemplate.
+   * @returns {void}
+   *
+   * @example
+   * // Use default template
+   * const mApp = new MerjentApp();
+   *
+   * @example
+   * // Use custom template
+   * import { CustomTemplate } from './templates/CustomTemplate';
+   * const mApp = new MerjentApp();
+   * mApp.install_template(CustomTemplate);
+   */
+  install_template = function(template = DefaultTemplate) {
+    template(this);
+  }
+
+  
+  // ============================================================================
+  // METHOD STUBS
+  // ============================================================================
+  // These are placeholder methods that get replaced by the installed template.
+  // See DefaultTemplate.js for the actual implementations.
+  // The JSDoc here documents the expected interface for each method.
+  // ============================================================================
+
+  //****STATUS METHODS****
+  /**
+   * App entry point. Runs: updatePermission > updateStatus > updateLock (if lockOnLoad).
+   *
+   * **Stub** - Implementation provided by {@link DefaultTemplate}.
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {void}
+   */
+  start(event) {}
+
+  /**
+   * Set report id to: `{year}{month}{day}_T{hours}{minutes}_{initials}`
+   *
+   * **Stub** - Implementation provided by {@link DefaultTemplate}.
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {void}
+   */
+  enterReportID(event){}
+
+  /**
+   * Callback that returns a prefix for the report ID. Override to customize.
+   *
+   * **Stub** - Implementation provided by {@link DefaultTemplate}.
+   *
+   * @returns {string|null}
+   */
+  reportIDprefix(){}
+
+  /**
+   * Adds coordinator initials when dnReviewed is checked 'yes'.
+   *
+   * **Stub** - Implementation provided by {@link DefaultTemplate}.
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {void}
+   */
+  addCoordinatorInitials(event) {}
+
+  hideCoordInit(event){}
+
+  /**
+   * Calculate the record status based on field values.
+   *
+   * **Stub** - Default implementation: {@link StatusMixins.draft_complete}
+   *
+   * Available alternatives in {@link StatusMixins}:
+   * - `draft_complete` - Two-state: Draft → Complete
+   * - `active_resolved` - Two-state: Active → Resolved
+   * - `p_s_complete` - Three-state: Pending → Submitted → Complete
+   * - `p_s_c_f_resolved` - Five-state with follow-up
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {string} Status value
+   */
+  getStatus(event) {return '';}
+
+  /**
+   * Update the record status if it has changed.
+   *
+   * **Stub** - Implementation provided by {@link DefaultTemplate}.
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {void}
+   */
+  updateStatus(event) {}
+
+  //****PERMISSION METHODS****
+
+  /**
+   * Get the permission level for the current user.
+   *
+   * **Stub** - Default implementation: {@link PermissionMixins.fourTier}
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {string} 'Admin' | 'Editor' | 'User' | 'Viewer'
+   */
+  getPermissions(event) {return 'User';}
+
+  /**
+   * Check if complete lock conditions are met.
+   *
+   * **Stub** - Default implementation: {@link LockingMixins.checkCompleteLockStatus}
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {boolean}
+   */
+  getCompleteLockStatus(event){}
+
+  /**
+   * Apply Admin permission restrictions.
+   *
+   * **Stub** - Default implementation: {@link PermissionMixins.standardAdmin}
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {void}
+   */
+  standardAdmin(event){}
+
+  /**
+   * Apply Editor permission restrictions.
+   *
+   * **Stub** - Default implementation: {@link PermissionMixins.standardEditor}
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {void}
+   */
+  standardEditor(event){}
+
+  /**
+   * Apply User permission restrictions.
+   *
+   * **Stub** - Default implementation: {@link PermissionMixins.standardUser}
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {void}
+   */
+  standardUser(event){}
+
+  /**
+   * Apply Viewer permission restrictions.
+   *
+   * **Stub** - Default implementation: {@link PermissionMixins.standardViewer}
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {void}
+   */
+  standardViewer(event){}
+
+  /**
+   * Apply base permission restrictions (read-only fields based on user level).
+   *
+   * **Stub** - Default implementation: {@link PermissionMixins.standardUpdate}
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {void}
+   */
+  baseUpdatePermission(event){}
+
+  /**
+   * Hook for additional permission logic. Override in your template.
+   *
+   * **Stub** - Implementation provided by {@link DefaultTemplate}. Returns null by default.
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {void}
+   */
+  addUpdatePermission(event){}
+
+  /**
+   * Apply all permission restrictions. Calls baseUpdatePermission + addUpdatePermission.
+   *
+   * **Stub** - Implementation provided by {@link DefaultTemplate}.
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {void}
+   */
+  updatePermission(event) {}
+
+  //****FIELD LOCK METHODS****
+  /**
+   * Check if field lock conditions are met.
+   *
+   * **Stub** - Default implementation: {@link LockingMixins.checkLockStatus}
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {boolean}
+   */
+  getLockStatus(event) {return false;}
+
+  /**
+   * Toggle field lock based on getLockStatus().
+   *
+   * **Stub** - Implementation provided by {@link DefaultTemplate}.
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {void}
+   */
+  updateLock(event) {}
+
+  /**
+   * Apply base field locking based on permission level.
+   *
+   * **Stub** - Default implementation: {@link LockingMixins.standardLockEditing}
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {void}
+   */
+  baseLockEditing(event){}
+
+  /**
+   * Hook for additional locking logic. Override in your template.
+   *
+   * **Stub** - Implementation provided by {@link DefaultTemplate}. Returns null by default.
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {void}
+   */
+  addLockEditing(event){}
+
+  /**
+   * Apply all field locking. Calls baseLockEditing + addLockEditing.
+   *
+   * **Stub** - Implementation provided by {@link DefaultTemplate}.
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {void}
+   */
+  lockEditing(event) {}
+
+  //****PHOTO METHODS****
+  /**
+   * Validate photo (landscape requirement, set location from photo).
+   *
+   * **Stub** - Default implementation: {@link PhotoMixins.standardValidation}
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {void}
+   */
+  validatePhoto(event) {}
+
+  /**
+   * Alert if photo caption exceeds photoCapMax characters.
+   *
+   * **Stub** - Default implementation: {@link PhotoMixins.limitCaption}
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {void}
+   */
+  limitCaption(event){}
+
+  /**
+   * Validate all photos have captions on submit.
+   *
+   * **Stub** - Default implementation: {@link PhotoMixins.validateAllPhotos}
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {void}
+   */
+  validateAllPhotos(event){}
+
+  /**
+   * Prevent users without permission from creating new records.
+   *
+   * **Stub** - Implementation provided by {@link DefaultTemplate}.
+   *
+   * @param {*} event - Fulcrum event object
+   * @returns {void}
+   * @example
+   * ON('new-record', mApp.disableNewRecordCreation)
+   */
+  disableNewRecordCreation(event){}
+}
+
+//#endregion
+
+export { MerjentApp }
+</code></pre>
+		</section>
+			</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">Mtools Copyright © 2025 Mikel Paiva</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on 14th Apr 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+	
+</body>
+</html>
+<!-- end:source.tmpl.hbs -->

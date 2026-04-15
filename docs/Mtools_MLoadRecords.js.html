@@ -1,0 +1,550 @@
+<!-- start:source.tmpl.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>Mtools/MLoadRecords.js</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"Merjent Fulcrum Tools","systemSummary":"Version 0.5.9","systemLogo":"","systemColor":"","navMembers":[{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"class","title":"Classes","summary":"All documented classes. View inheritance chains in each class description."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Mtools Copyright © 2025 Mikel Paiva","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":false,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"lineage, longname","search":true,"favicon":null,"stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":true,"default":{"outputSourceFiles":false}};
+			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					Merjent Fulcrum Tools
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="DataEventHelpers.html">DataEventHelpers</a></li>
+											<li><a href="FieldHelpers.html">FieldHelpers</a></li>
+											<li><a href="FieldHelpers.MfldColl.html">FieldHelpers.MfldColl</a></li>
+											<li><a href="FieldHelpers.MfldTypes.html">FieldHelpers.MfldTypes</a></li>
+											<li><a href="FulcrumHelpers.html">FulcrumHelpers</a></li>
+											<li><a href="MerjentApp.html">MerjentApp</a></li>
+											<li><a href="Mfld.html">Mfld</a></li>
+											<li><a href="MLoadRecords.html">MLoadRecords</a></li>
+											<li><a href="MRequest.html">MRequest</a></li>
+											<li><a href="MRequest.html">MRequest</a></li>
+											<li><a href="ReportHelpers.html">ReportHelpers</a></li>
+											<li><a href="ReportHelpers.SecOpt.html">ReportHelpers.SecOpt</a></li>
+											<li><a href="RequestHelpers.html">RequestHelpers</a></li>
+											<li><a href="Utils.html">Utils</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_module.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-MtoolsDataEvents.html">MtoolsDataEvents</a></li>
+											<li><a href="module-MtoolsMerjentApp.html">MtoolsMerjentApp</a></li>
+											<li><a href="module-MtoolsReports.html">MtoolsReports</a></li>
+											<li><a href="module-MtoolsUtils.html">MtoolsUtils</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="DefaultTemplate.html">DefaultTemplate</a></li>
+											<li><a href="LockingMixins.html">LockingMixins</a></li>
+											<li><a href="PermissionMixins.html">PermissionMixins</a></li>
+											<li><a href="PhotoMixins.html">PhotoMixins</a></li>
+											<li><a href="StatusMixins.html">StatusMixins</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_tutorial.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="tutorial-01_overview.html">01: Overview</a></li>
+											<li><a href="tutorial-02_mtools.html">02: Mtools for Data Events</a></li>
+											<li><a href="tutorial-03_mapp.html">03: MerjentApp (mApp)</a></li>
+											<li><a href="tutorial-04_pdf-reports.html">04: Mtools for PDF Reports</a></li>
+											<li><a href="tutorial-A1_mapp-cheat-sheet.html">A1: mApp Cheat Sheet</a></li>
+											<li><a href="tutorial-A2_mloadrecords.html">A2: MLoadRecords</a></li>
+											<li><a href="tutorial-A3_report-template-cheatsheet.html">A3: Report Template Cheat Sheet</a></li>
+											<li><a href="tutorial-B1_merjent-dev.html">B1: Development Guide</a></li>
+											<li><a href="tutorial-B2_general-dev.html">B2: General Development Resources</a></li>
+											<li><a href="tutorial-Z1_CHANGELOG.html">Changelog</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">source</span>
+				<h1><span class="name">Mtools/MLoadRecords.js</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">import { FulcrumHelpers } from './FulcrumHelpers';
+//#region ******************************** MLOADRECORDS **************************************/
+/**
+ * @summary Loads and manages records from a linked Fulcrum form
+ * @description Handles loading form schemas and records from companion Fulcrum apps.
+ * Creates a dictionary to convert form_value keys to data_name keys for easier access.
+ *
+ * **Common use cases:**
+ * - Load records from a linked app based on a record link field
+ * - Refresh a record link field when records in the linked app reference this record
+ * - Prevent duplicate record selection across records in this app
+ *
+ * @property {string} formID - Fulcrum form ID of the linked app
+ * @property {Function|null} enterLoadedData - Callback to process records after loading
+ * @property {Array&lt;string>|null} recIDs - Array of record IDs to load
+ * @property {Object} appFvs - Dictionary mapping form_value keys to data_names
+ * @property {Array&lt;Object>|null} appRecords - Loaded records with data_name keys
+ * @property {boolean} recordsOnLoad - If true, loads records immediately after form schema
+ * @property {Array&lt;Array>|null} sortOrder - Sort order for queries, e.g., [['report_id', 'dsc']]
+ * @property {string} dnRecLink - Data name of record link field in this app
+ * @property {string} dnRecLinkIds - Data name of text field storing record IDs
+ * @property {Array&lt;string>} dnsRecLinkAuto - Data names to clear if duplicate found
+ * @property {string} dnRefreshRL - Data name of record link field to refresh
+ * @property {Function} addOnRefreshRL - Additional callback after refreshing record link
+ * @property {Function} duplicateAlert - Function to call when duplicate detected
+ * @property {FulcrumHelpers} helpers - FulcrumHelpers instance for utility methods
+ *
+ * @see FulcrumHelpers
+ * @see FulcrumHelpers#loadRecords
+ * @see FulcrumHelpers#fv2DnRows
+ *
+ * @example &lt;caption>Basic usage - load records on change&lt;/caption>
+ * const appID = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+ *
+ * function processRecordsCallback() {
+ *   const loadedRecords = loader.appRecords
+ *   const titleList = loadedRecords.map(x => x.scientific_name + ' - ' + x.common_name)
+ *   SETVALUE('result', titleList.join('\n'))
+ * }
+ *
+ * const loader = new MLoadRecords(appID, processRecordsCallback)
+ * loader.dnRecLink = 'species_link'
+ *
+ * ON('load-record', loader.buildAppFvDict)
+ * ON('change', 'species_link', loader.updateLoadedRecords)
+ *
+ * @example &lt;caption>Duplicate checking&lt;/caption>
+ * const loader = new MLoadRecords(appID, null)
+ * loader.dnRecLink = 'project_link'
+ * loader.dnRecLinkIds = 'project_id_text'
+ * loader.dnsRecLinkAuto = ['project_name', 'project_date']
+ *
+ * ON('load-record', loader.buildAppFvDict)
+ * ON('change', 'project_link', loader.selfDupCheck)
+ */
+class MLoadRecords{
+  /**
+   * @summary Additional callback after refreshing record link
+   * @description Override this to perform additional actions after refreshRecordLink completes.
+   * @type {Function}
+   * @example
+   * loader.addOnRefreshRL = () => {
+   *   SETVALUE('child_count', loader.appRecords.length)
+   * }
+   */
+  addOnRefreshRL = () => { return null; };
+
+  /**
+   * @summary Alert function for duplicate detection
+   * @description Override this to customize the duplicate record alert message.
+   * @type {Function}
+   * @example
+   * loader.duplicateAlert = () => {
+   *   ALERT('This project is already assigned to another record.')
+   * }
+   */
+  duplicateAlert = () => { ALERT('Duplicate record selected. Please choose another record.'); };
+
+  /**
+   * @param {string} formID - Fulcrum form ID (required)
+   * @param {Function} [enterLoadedData=null] - Callback function to process loaded records
+   * @param {FulcrumHelpers} [fulcrumHelpers=null] - Optional helper instance (creates new FulcrumHelpers if not provided)
+   * @throws {Error} If formID is not provided
+   * @throws {Error} If enterLoadedData is provided but is not a function
+   */
+  constructor(formID, enterLoadedData = null, fulcrumHelpers = null){
+    if (!formID) {
+      throw new Error('MLoadRecords requires a formID');
+    }
+    if (enterLoadedData &amp;&amp; typeof enterLoadedData !== 'function') {
+      throw new Error('enterLoadedData must be a function');
+    }
+
+    this.enterLoadedData = enterLoadedData;
+    this.formID = formID;
+    this.recIDs = null;
+    this.recordsOnLoad = false;
+    this.sortOrder = null; // e.g. [['report_id', 'dsc']]
+    this.dnRecLink = ''; // THIS app data_name of record link field to base Loads on.
+    this.dnRecLinkIds = '';// CHILD app data_name of text field, storing record ids to match against this.dnRecLink
+    this.dnsRecLinkAuto = []; // THIS app data names to auto clear if duplicate found in selfDupCheck
+    this.dnRefreshRL = ''; // CHILD app data_name of record link field to load/refresh this.dnRecLink in this app.
+    this.appFvs = {};
+    this.appRecords = [];
+    this.helpers = fulcrumHelpers instanceof FulcrumHelpers ? fulcrumHelpers : new FulcrumHelpers();
+  }
+
+  /**
+   * @summary Creates a filter object for loading all records from a form
+   * @description Returns a query object with no predicates, which loads all records.
+   * @returns {Object} Empty filter object with form_id
+   * @example
+   * const opts = loader.filterEmpty()
+   * loader.loadRecords(opts, myCallback)
+   */
+  filterEmpty() {
+    return { "form_id": this.formID, "where": { "operator": "or", "predicates": [] } };
+  }
+
+  /**
+   * @summary Creates a filter object for loading records by ID array
+   * @description Returns a query object that loads specific records by their IDs.
+   * @param {Array&lt;string>} ids - Array of Fulcrum record IDs
+   * @returns {Object} Filter object with ids and form_id
+   * @example
+   * const ids = ['abc-123', 'def-456']
+   * const opts = loader.filterId(ids)
+   * loader.loadRecords(opts, myCallback)
+   */
+  filterId(ids) {
+    return { "ids": ids, "form_id": this.formID };
+  }
+
+  /**
+   * @summary Creates a filter object with a single predicate
+   * @description Returns a query object with a single field filter.
+   * Common operators: "equal_to", "not_equal_to", "contains", "starts_with", "greater_than", "less_than"
+   * @param {string} dn - Data name of field to filter on
+   * @param {string} op - LOADRECORDS operator (e.g., "equal_to", "contains")
+   * @param {string|number|boolean} val - Value to filter by
+   * @param {Array&lt;Array>|null} [order=null] - Optional sort order, e.g., [['date', 'dsc']]
+   * @returns {Object} Filter object for LOADRECORDS
+   * @example
+   * const opts = loader.filterTemplate('status', 'equal_to', 'active')
+   * loader.loadRecords(opts, myCallback)
+   * @example &lt;caption>With sort order&lt;/caption>
+   * const opts = loader.filterTemplate('project_id', 'equal_to', 'P123', [['created_at', 'dsc']])
+   */
+  filterTemplate(dn, op, val, order = null) {
+    return {
+      "form_id": this.formID,
+      "where": {
+        "operator": "and",
+        "predicates": [
+          { "field": dn, "operator": op, "value": val }
+        ]
+      },
+      "order": order || null
+    };
+  }
+
+  /**
+   * @summary Processes records and updates appRecords
+   * @description Common logic for converting form_value keys to data_name keys.
+   * Sets this.appRecords to null if no records, otherwise converts and stores them.
+   * @param {Array&lt;Object>} records - Array of raw Fulcrum record objects
+   * @returns {boolean} True if records were processed, false if empty/null
+   * @private
+   */
+  _processRecordResults(records) {
+    if (!records || records.length &lt; 1) {
+      this.appRecords = null;
+      return false;
+    }
+    this.appRecords = this.helpers.fv2DnRows(records, this.appFvs);
+    return true;
+  }
+
+  /**
+   * @summary Loads form schema
+   * @description Loads a Fulcrum form schema and passes it to the callback.
+   * Delegates to FulcrumHelpers.loadForm.
+   * @param {string} formID - Fulcrum form ID to load
+   * @param {Function} callBack - Function to receive the loaded form schema
+   * @returns {void}
+   */
+  loadForm = (formID, callBack) => {
+    this.helpers.loadForm(formID, callBack);
+  }
+
+  /**
+   * @summary Loads records with flexible parameter handling
+   * @description Wrapper for FulcrumHelpers.loadRecords with enhanced parameter handling.
+   * Supports flexible parameter formats for convenience in MLoadRecords context.
+   * @param {Object|Array&lt;string>|string|null} [opts=null] - Can be: null (loads all), array of IDs, query object, or formID string
+   * @param {Function|null} [callback=null] - Callback function. Defaults to this.processRecords
+   * @returns {void}
+   * @example &lt;caption>Load by ID array&lt;/caption>
+   * loader.loadRecords(['id1', 'id2'], myCallback)
+   * @example &lt;caption>Load with query object&lt;/caption>
+   * const opts = loader.filterTemplate('status', 'equal_to', 'active')
+   * loader.loadRecords(opts)
+   */
+  loadRecords = (opts = null, callback = null) => {
+    // Normalize opts to match FulcrumHelpers.loadRecords signature (arr, formID, callback)
+    let arr = null;
+    let formID = this.formID;
+
+    if (Array.isArray(opts)) {
+      arr = opts;
+    } else if (typeof opts === 'object' &amp;&amp; opts !== null) {
+      // It's already a query object, use advanced version
+      callback = callback ? callback : this.processRecords;
+      const pullRecords = (e, r) => {
+        if (e) {
+          ALERT('LOADRECORDS failed:' + JSON.stringify(e));
+        } else {
+          callback(r.records);
+        }
+      };
+      LOADRECORDS(opts, pullRecords);
+      return;
+    } else if (typeof opts === 'string') {
+      formID = opts;
+    }
+
+    // Use the helper method for simple cases
+    callback = callback ? callback : this.processRecords;
+    this.helpers.loadRecords(arr, formID, callback);
+  }
+
+  /**
+   * @summary Loads form schema and immediately loads records
+   * @description Use in ON('load-record') event. Sets recordsOnLoad=true,
+   * then loads form schema and continues to load records.
+   * Equivalent to setting recordsOnLoad=true and calling buildAppFvDict.
+   * @param {Object} event - Fulcrum load-record event object
+   * @returns {void}
+   * @todo deprecate getAppFvs in favor of buildAppFvDict with recordsOnLoad = true
+   * @example
+   * ON('load-record', loader.getAppFvs)
+   */
+  getAppFvs = (event) => {
+    this.recordsOnLoad = true;
+    this.loadForm(this.formID, this.processForm);
+  }
+
+  /**
+   * @summary Loads form schema only (no records)
+   * @description Use in ON('load-record') event. Loads form schema to build
+   * the form_value to data_name dictionary, but does NOT load any records.
+   * Records can be loaded later via updateLoadedRecords or loadRecords.
+   * @param {Object} event - Fulcrum load-record event object
+   * @returns {void}
+   * @example
+   * ON('load-record', loader.buildAppFvDict)
+   * ON('change', 'species_link', loader.updateLoadedRecords)
+   */
+  buildAppFvDict = (event) => {
+    this.loadForm(this.formID, this.processForm);
+  }
+
+  /**
+   * @summary Updates loaded records from record link field
+   * @description Extracts record IDs from the configured record link field (dnRecLink)
+   * and loads those records. Clears auto fields if no IDs found.
+   * @param {Object} event - Fulcrum change event object
+   * @returns {void}
+   * @example
+   * loader.dnRecLink = 'species_link'
+   * ON('change', 'species_link', loader.updateLoadedRecords)
+   */
+  updateLoadedRecords = (event) => {
+    if (!this.dnRecLink) return this.loadRecords(null, this.processRecords);
+
+    const ids = VALUE(this.dnRecLink) ? VALUE(this.dnRecLink).map(x => x.record_id) : null;
+    if (!ids || ids.length &lt; 1) return this.clearAutoFields();
+    this.loadRecords(ids, this.processRecords);
+  }
+
+  /**
+   * @summary Processes loaded form schema
+   * @description Callback for loadForm. Creates the form_value to data_name dictionary (appFvs).
+   * If recordsOnLoad is true, continues to load records via refreshRecordLink or updateLoadedRecords.
+   * @param {Object} form - Fulcrum form schema object
+   * @returns {void}
+   */
+  processForm = (form = null) => {
+    if (form) {
+      this.appFvs = this.helpers.flipKVpair(this.helpers.makeFvDict(form));
+      if (this.recordsOnLoad &amp;&amp; this.dnRefreshRL) {
+        this.refreshRecordLink();
+      }
+      if (this.recordsOnLoad &amp;&amp; !this.dnRefreshRL) {
+        this.updateLoadedRecords();
+      }
+    }
+  }
+
+  /**
+   * @summary Processes loaded records
+   * @description Default callback for loadRecords. Converts form_value keys to data_name keys
+   * and stores in appRecords. Calls enterLoadedData callback if recordsOnLoad is true.
+   * @param {Array&lt;Object>} records - Array of raw Fulcrum record objects
+   * @returns {void}
+   */
+  processRecords = (records) => {
+    if (!this._processRecordResults(records)) return;
+    if (this.recordsOnLoad &amp;&amp; this.enterLoadedData) this.enterLoadedData(this.appRecords);
+  }
+
+  /**
+   * @summary Checks for duplicate record selection
+   * @description Prevents selecting a record that is already linked in another record of this app.
+   * Queries for records containing the selected record ID and clears selection if found.
+   * Requires dnRecLink, dnRecLinkIds, and optionally dnsRecLinkAuto to be configured.
+   * @param {Object} event - Fulcrum change event from record link field
+   * @returns {void}
+   * @example
+   * loader.dnRecLink = 'project_link'
+   * loader.dnRecLinkIds = 'project_id_text'
+   * loader.dnsRecLinkAuto = ['project_name', 'project_date']
+   * ON('change', 'project_link', loader.selfDupCheck)
+   */
+  selfDupCheck = (event) => {
+    const id = event.value &amp;&amp; event.value.length > 0 ? event.value[0].record_id : null;
+    if (!id) return this.clearAutoFields();
+
+    SETVALUE(this.dnRecLinkIds, id);
+    const qOpts = this.filterTemplate(this.dnRecLinkIds, "contains", id);
+    this.loadRecords(qOpts, this.processSelfDupCheck);
+  }
+
+  /**
+   * @summary Processes duplicate check results
+   * @description Callback for selfDupCheck. If records are found that aren't the current record,
+   * clears the selection, auto fields, and shows the duplicate alert.
+   * @param {Array&lt;Object>} records - Array of raw Fulcrum record objects
+   * @returns {void}
+   */
+  processSelfDupCheck = (records) => {
+    if (!this._processRecordResults(records)) return;
+
+    const filteredIds = records.filter((x) => x.id == RECORDID());
+    if (filteredIds.length > 0) return;
+
+    if (this.dnsRecLinkAuto.length > 0) this.clearAutoFields();
+    SETVALUE(this.dnRecLink, null);
+    this.duplicateAlert();
+  }
+
+  /**
+   * @summary Processes refresh record link results
+   * @description Callback for refreshRecordLink. Updates the record link field
+   * with the IDs of loaded records and calls addOnRefreshRL callback.
+   * @param {Array&lt;Object>} records - Array of raw Fulcrum record objects
+   * @returns {void}
+   */
+  processRefreshRL = (records) => {
+    if (!this._processRecordResults(records)) return;
+
+    const ids = this.appRecords.map(x => x.id);
+    SETVALUE(this.dnRecLink, ids);
+    this.addOnRefreshRL();
+  }
+
+  /**
+   * @summary Refreshes a record link field with linked records
+   * @description Queries for records in the linked app that reference the current record
+   * (via dnRefreshRL field containing current RECORDID), then updates the record link field.
+   * Requires dnRefreshRL to be configured.
+   * @returns {void}
+   * @example
+   * loader.dnRefreshRL = 'parent_record_link'
+   * loader.dnRecLink = 'child_records'
+   * loader.sortOrder = [['created_at', 'dsc']]
+   */
+  refreshRecordLink = () => {
+    const opts = this.filterTemplate(this.dnRefreshRL, "contains", RECORDID(), this.sortOrder);
+    this.loadRecords(opts, this.processRefreshRL);
+  }
+
+  /**
+   * @summary Clears auto-populated fields
+   * @description Clears all fields listed in dnsRecLinkAuto array.
+   * Called when record link is cleared or duplicate is detected.
+   * @returns {void}
+   */
+  clearAutoFields = () => {
+    if (this.dnsRecLinkAuto.length &lt; 1) return;
+
+    for (const dn of this.dnsRecLinkAuto) {
+      this.helpers.clear(dn);
+    }
+  }
+}
+//#endregion
+
+export { MLoadRecords };
+</code></pre>
+		</section>
+			</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">Mtools Copyright © 2025 Mikel Paiva</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on 14th Apr 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+	
+</body>
+</html>
+<!-- end:source.tmpl.hbs -->

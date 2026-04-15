@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>ReportHelpers.SecOpt</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"Merjent Fulcrum Tools","systemSummary":"Version 0.5.9","systemLogo":"","systemColor":"","navMembers":[{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"class","title":"Classes","summary":"All documented classes. View inheritance chains in each class description."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Mtools Copyright © 2025 Mikel Paiva","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":false,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"lineage, longname","search":true,"favicon":null,"stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":true,"default":{"outputSourceFiles":false}};
+			window.DOCLET_TOC_ENABLED = true;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					Merjent Fulcrum Tools
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="DataEventHelpers.html">DataEventHelpers</a></li>
+											<li><a href="FieldHelpers.html">FieldHelpers</a></li>
+											<li><a href="FieldHelpers.MfldColl.html">FieldHelpers.MfldColl</a></li>
+											<li><a href="FieldHelpers.MfldTypes.html">FieldHelpers.MfldTypes</a></li>
+											<li><a href="FulcrumHelpers.html">FulcrumHelpers</a></li>
+											<li><a href="MerjentApp.html">MerjentApp</a></li>
+											<li><a href="Mfld.html">Mfld</a></li>
+											<li><a href="MLoadRecords.html">MLoadRecords</a></li>
+											<li><a href="MRequest.html">MRequest</a></li>
+											<li><a href="MRequest.html">MRequest</a></li>
+											<li><a href="ReportHelpers.html">ReportHelpers</a></li>
+											<li><a href="ReportHelpers.SecOpt.html">ReportHelpers.SecOpt</a></li>
+											<li><a href="RequestHelpers.html">RequestHelpers</a></li>
+											<li><a href="Utils.html">Utils</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_module.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-MtoolsDataEvents.html">MtoolsDataEvents</a></li>
+											<li><a href="module-MtoolsMerjentApp.html">MtoolsMerjentApp</a></li>
+											<li><a href="module-MtoolsReports.html">MtoolsReports</a></li>
+											<li><a href="module-MtoolsUtils.html">MtoolsUtils</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="DefaultTemplate.html">DefaultTemplate</a></li>
+											<li><a href="LockingMixins.html">LockingMixins</a></li>
+											<li><a href="PermissionMixins.html">PermissionMixins</a></li>
+											<li><a href="PhotoMixins.html">PhotoMixins</a></li>
+											<li><a href="StatusMixins.html">StatusMixins</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_tutorial.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="tutorial-01_overview.html">01: Overview</a></li>
+											<li><a href="tutorial-02_mtools.html">02: Mtools for Data Events</a></li>
+											<li><a href="tutorial-03_mapp.html">03: MerjentApp (mApp)</a></li>
+											<li><a href="tutorial-04_pdf-reports.html">04: Mtools for PDF Reports</a></li>
+											<li><a href="tutorial-A1_mapp-cheat-sheet.html">A1: mApp Cheat Sheet</a></li>
+											<li><a href="tutorial-A2_mloadrecords.html">A2: MLoadRecords</a></li>
+											<li><a href="tutorial-A3_report-template-cheatsheet.html">A3: Report Template Cheat Sheet</a></li>
+											<li><a href="tutorial-B1_merjent-dev.html">B1: Development Guide</a></li>
+											<li><a href="tutorial-B2_general-dev.html">B2: General Development Resources</a></li>
+											<li><a href="tutorial-Z1_CHANGELOG.html">Changelog</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">class</span>
+				<h1><span class="ancestors"><a href="ReportHelpers.html">ReportHelpers</a>.</span><span class="name">SecOpt</span></h1>
+				<div class="summary"><p>Constructor for pdf report Section Header types</p></div>			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-9 main-content">
+						<ol class="breadcrumb">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="list_class.html">Classes</a></li>
+							<li class="active"><a href="ReportHelpers.html">ReportHelpers</a>.SecOpt</li>
+						</ol>
+					<section>
+							<dl class="symbol primary">
+								<dt class="symbol-title class collapsible-symbol expanded">
+			<h2 class="class"><span class="signature-new">new&nbsp;</span><span class="name">SecOpt</span><span class="signature-params">( [&nbsp;<span class="signature-param">prefix</span> [,&nbsp;<span class="signature-param">center</span> [,&nbsp;<span class="signature-param">suffix</span> [,&nbsp;<span class="signature-param">lblIndex</span>&nbsp;]&nbsp;]&nbsp;]&nbsp;]&nbsp;)</span><span class="signature-type"></span></h2>
+		<div class="summary"><p>Constructor for pdf report Section Header types</p></div></dt>
+<dd class="symbol-details class  collapsible-symbol expanded" style="max-height: 9999px;">
+	<div class="symbol-details-inner">
+			<div class="callout callout-primary"><h5>Description</h5>		<div class="description"><p>Enter either a value for &quot;center&quot; or &quot;data_name&quot; NOT both. If both are entered, &quot;center&quot; will take precedence.
+			If the section is part of a repeatable and &quot;data_name&quot; is used you must also enter the &quot;rep_data_name&quot; property.</p>
+			<p>Options for center value property are: 'data_name', 'center', 'rep_data_name'</p></div>
+			</div>			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+							<th>Default</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>prefix</code></td>
+							<td><span class="param-type">string</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+								<td></td>
+							<td class="last">
+									<p>Prefix of section header</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>center</code></td>
+							<td><span class="param-type">string</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+								<td></td>
+							<td class="last">
+									<p>Text for body of section header, overrides data_name and rep_data_name</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>suffix</code></td>
+							<td><span class="param-type">string</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+								<td></td>
+							<td class="last">
+									<p>Suffix of section header</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>lblIndex</code></td>
+							<td><span class="param-type">boolean</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+								<td>false</td>
+							<td class="last">
+									<p>Set to true and index included will be printed after prefix</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-info">
+				<h5>Properties</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+							<th>Attributes</th>
+							<th>Default</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>hide</code></td>
+							<td><span class="param-type">boolean</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+								<td>false</td>
+							<td class="last">
+									<p>Set to true to hide section header</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>data_name</code></td>
+							<td><span class="param-type">string</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+								<td>&#x27;&#x27;</td>
+							<td class="last">
+									<p>data name of section or field LABEL() will be used as body of section header</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>rep_data_name</code></td>
+							<td><span class="param-type">string</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+								<td>&#x27;&#x27;</td>
+							<td class="last">
+									<p>data name of Repeatable, LABEL() will be used as body of section header</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>index</code></td>
+							<td><span class="param-type">number</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+								<td></td>
+							<td class="last">
+									<p>Index of repeatable section, will be calculated automatically by other methods if section is from a repeatable</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>css</code></td>
+							<td><span class="param-type">string</span></td>
+								<td class="attributes">&lt;optional&gt;<br/></td>
+								<td>&#x27;mjnt-sectionHeader spacer-top&#x27;</td>
+							<td class="last">
+									<p>CSS class for section header</p>
+							</td>
+						</tr>
+						<tr>
+								<td><code>htmlTemplates</code></td>
+							<td><span class="param-type">ReportTemplateBlocks</span></td>
+								<td class="attributes"></td>
+								<td></td>
+							<td class="last">
+									<p>Reference to ReportTemplateBlocks for HTML generation</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+	</div>
+</dd>
+							</dl>
+							<article class="secondary">
+									<h3>Methods</h3>
+									<dl class="symbol">
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="getCenter" class="function public"><span class="name">getCenter</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{string}</span></h4>
+				<div class="summary"><p>Gets the central text to display in a section header</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">string</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="text" class="function public"><span class="name">text</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{string}</span></h4>
+				<div class="summary"><p>Returns full section header text</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">string</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="toHtml" class="function public"><span class="name">toHtml</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{string}</span></h4>
+				<div class="summary"><p>Returns styled html for section header</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">string</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="getIndex" class="function public"><span class="name">getIndex</span><span class="signature-params">()</span><span class="signature-type"> &rarr;&nbsp;{number}</span></h4>
+				<div class="summary"><p>Returns index number of repeatable section</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">number</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>	</div>
+</dd>
+											<hr/>
+											<dt class="symbol-title function public collapsible-symbol">
+			<h4 id="c" class="function public"><span class="name">c</span><span class="signature-params">( <span class="signature-param">str</span>&nbsp;)</span><span class="signature-type"> &rarr;&nbsp;{*}</span></h4>
+				<div class="summary"><p>Check if property is a function or value and return value or result of function</p></div></dt>
+<dd class="symbol-details function public  collapsible-symbol">
+	<div class="symbol-details-inner">
+			<div class="callout callout-info">
+				<h5>Parameters</h5>
+				<table class="params table table-striped">
+					<thead>
+					<tr>
+							<th>Name</th>
+						<th>Type</th>
+						<th class="last">Description</th>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+								<td><code>str</code></td>
+							<td><span class="param-type">string</span></td>
+							<td class="last">
+									<p>property name</p>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="callout callout-success"><h5>Returns</h5>		<form class="form-horizontal returns">
+							<div class="form-group">
+								<label class="col-sm-3 control-label returns-type"><span class="param-type">*</span></label>
+								<div class="col-sm-9">
+									<div class="form-control-static returns-description"></div>
+								</div>
+							</div>
+					</form>
+			</div>	</div>
+</dd>
+									</dl>
+							</article>
+					</section>
+			</div>
+				<div class="col-md-3 side-content">
+					<nav class="toc hidden-print hidden-sm hidden-xs"></nav>
+				</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">Mtools Copyright © 2025 Mikel Paiva</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on 14th Apr 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+	
+</body>
+</html>

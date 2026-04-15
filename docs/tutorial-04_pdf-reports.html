@@ -1,0 +1,884 @@
+<!-- start:readme.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>04: Mtools for PDF Reports</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"Merjent Fulcrum Tools","systemSummary":"Version 0.5.9","systemLogo":"","systemColor":"","navMembers":[{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"class","title":"Classes","summary":"All documented classes. View inheritance chains in each class description."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Mtools Copyright © 2025 Mikel Paiva","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":false,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"lineage, longname","search":true,"favicon":null,"stylesheets":[],"scripts":[],"monospaceLinks":false,"cleverLinks":true,"default":{"outputSourceFiles":false}};
+			window.DOCLET_TOC_ENABLED = true;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					Merjent Fulcrum Tools
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="DataEventHelpers.html">DataEventHelpers</a></li>
+											<li><a href="FieldHelpers.html">FieldHelpers</a></li>
+											<li><a href="FieldHelpers.MfldColl.html">FieldHelpers.MfldColl</a></li>
+											<li><a href="FieldHelpers.MfldTypes.html">FieldHelpers.MfldTypes</a></li>
+											<li><a href="FulcrumHelpers.html">FulcrumHelpers</a></li>
+											<li><a href="MerjentApp.html">MerjentApp</a></li>
+											<li><a href="Mfld.html">Mfld</a></li>
+											<li><a href="MLoadRecords.html">MLoadRecords</a></li>
+											<li><a href="MRequest.html">MRequest</a></li>
+											<li><a href="MRequest.html">MRequest</a></li>
+											<li><a href="ReportHelpers.html">ReportHelpers</a></li>
+											<li><a href="ReportHelpers.SecOpt.html">ReportHelpers.SecOpt</a></li>
+											<li><a href="RequestHelpers.html">RequestHelpers</a></li>
+											<li><a href="Utils.html">Utils</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_module.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-MtoolsDataEvents.html">MtoolsDataEvents</a></li>
+											<li><a href="module-MtoolsMerjentApp.html">MtoolsMerjentApp</a></li>
+											<li><a href="module-MtoolsReports.html">MtoolsReports</a></li>
+											<li><a href="module-MtoolsUtils.html">MtoolsUtils</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="DefaultTemplate.html">DefaultTemplate</a></li>
+											<li><a href="LockingMixins.html">LockingMixins</a></li>
+											<li><a href="PermissionMixins.html">PermissionMixins</a></li>
+											<li><a href="PhotoMixins.html">PhotoMixins</a></li>
+											<li><a href="StatusMixins.html">StatusMixins</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_tutorial.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="tutorial-01_overview.html">01: Overview</a></li>
+											<li><a href="tutorial-02_mtools.html">02: Mtools for Data Events</a></li>
+											<li><a href="tutorial-03_mapp.html">03: MerjentApp (mApp)</a></li>
+											<li><a href="tutorial-04_pdf-reports.html">04: Mtools for PDF Reports</a></li>
+											<li><a href="tutorial-A1_mapp-cheat-sheet.html">A1: mApp Cheat Sheet</a></li>
+											<li><a href="tutorial-A2_mloadrecords.html">A2: MLoadRecords</a></li>
+											<li><a href="tutorial-A3_report-template-cheatsheet.html">A3: Report Template Cheat Sheet</a></li>
+											<li><a href="tutorial-B1_merjent-dev.html">B1: Development Guide</a></li>
+											<li><a href="tutorial-B2_general-dev.html">B2: General Development Resources</a></li>
+											<li><a href="tutorial-Z1_CHANGELOG.html">Changelog</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">tutorial</span>
+				<h1><span class="title">04: Mtools for PDF Reports</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-9 main-content">
+						<ol class="breadcrumb">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="list_tutorial.html">Tutorials</a></li>
+							<li class="active">04: Mtools for PDF Reports</li>
+						</ol>
+		<section class="tutorial-section">
+			<article><h1>Mtools Module for PDF Reports</h1>
+<h2>Overview</h2>
+<p>The <strong>ReportHelpers</strong> class (accessed as <code>M</code> in reports) provides methods for generating professional PDF reports from Fulcrum data. It handles HTML grid generation, photo galleries, table building, and field value formatting.</p>
+<h3>When to Use</h3>
+<p>Use ReportHelpers when you need to:</p>
+<ul>
+<li>Generate PDF reports from Fulcrum records</li>
+<li>Display fields in organized grids and tables</li>
+<li>Create photo galleries with captions</li>
+<li>Handle repeatable sections</li>
+<li>Format field values (checkboxes, choice fields, addresses)</li>
+<li>Build consistent, professional-looking reports</li>
+</ul>
+<h3>What You Get</h3>
+<ul>
+<li><strong>Grid layouts</strong> - Automatic 12-column responsive grids</li>
+<li><strong>Photo galleries</strong> - Customizable column layouts with captions</li>
+<li><strong>Table generation</strong> - Open tables for tabular data</li>
+<li><strong>Value formatting</strong> - Automatic checkbox/choice field conversion</li>
+<li><strong>Section builders</strong> - Pre-configured section templates</li>
+<li><strong>CSS styling</strong> - Professional Merjent report styles</li>
+</ul>
+<hr>
+<h2>Important Things to Remember</h2>
+<p>Before building your PDF report, keep these critical points in mind:</p>
+<h3>✅ Always Use Region Markers</h3>
+<pre class="prettyprint source lang-javascript"><code>//#region !START MERJENT FULCRUM TOOLS!
+// ... paste merjent-tools-report.mmin.js content here ...
+//#endregion !END MERJENT FULCRUM TOOLS!
+</code></pre>
+<p>These markers let Python update tools replace MTools while preserving your custom report code.</p>
+<h3>✅ M is Pre-Instantiated</h3>
+<pre class="prettyprint source lang-javascript"><code>// The dist file already contains:
+// const M = new ReportHelpers();
+
+// ✓ CORRECT - Just use M directly after the region markers
+&lt;%- M.buildDefaultSection(secDn, mFlds, secOpts) %>
+
+// ✗ WRONG - Don't re-instantiate
+const M = new ReportHelpers(CONFIG, data);
+</code></pre>
+<h3>✅ Grid Spans Must Add Up to 12</h3>
+<pre class="prettyprint source lang-javascript"><code>// ✓ CORRECT - Total = 12
+mFlds.m('field1').span = 4;  // 4
+mFlds.m('field2').span = 4;  // 4
+mFlds.m('field3').span = 4;  // 4
+
+// ✗ WRONG - Total = 15 (will wrap incorrectly)
+mFlds.m('field1').span = 5;
+mFlds.m('field2').span = 5;
+mFlds.m('field3').span = 5;
+</code></pre>
+<h3>✅ Use FIELDNAMES() for Dynamic Lists</h3>
+<pre class="prettyprint source lang-javascript"><code>// ✓ GOOD - Automatically adapts to form changes
+const dns = FIELDNAMES('section', {sections: false});
+const mFlds = M.mkMflds(dns);
+
+// ✗ AVOID - Breaks when fields are added/removed
+const dns = ['field1', 'field2', 'field3'];
+</code></pre>
+<h3>✅ Use fldVal() for Complex Field Types</h3>
+<pre class="prettyprint source lang-javascript"><code>// ✓ CORRECT - Handles choice fields, addresses, etc.
+&lt;%=M.fldVal('choice_field')%>
+&lt;%=M.fldVal('address_field')%>
+
+// ✗ WRONG - Shows [object Object]
+&lt;%=VALUE('choice_field')%>
+&lt;%=VALUE('address_field')%>
+</code></pre>
+<h3>✅ Test with Edge Cases</h3>
+<p>Always preview your report with:</p>
+<ul>
+<li>Records with no data (blank fields)</li>
+<li>Records with all fields filled</li>
+<li>Records with many repeatable items (10+)</li>
+<li>Records with no photos</li>
+<li>Records with long text fields</li>
+</ul>
+<h3>✅ Group Related Code</h3>
+<p>Keep section setup code together:</p>
+<pre class="prettyprint source lang-javascript"><code>&lt;%
+  const secDn = 'site_information';
+  const dns = FIELDNAMES(secDn, {sections: false});
+  const mFlds = M.mkMflds(dns);
+  const secOpts = new SecOpt(null, LABEL(secDn), null);
+%>
+&lt;%- M.buildDefaultSection(secDn, mFlds, secOpts) %>
+</code></pre>
+<hr>
+<h2>Installation</h2>
+<p>Copy <code>merjent-tools-report.mmin.js</code> into your Fulcrum PDF report template:</p>
+<pre class="prettyprint source lang-javascript"><code>//#region !START MERJENT FULCRUM TOOLS!
+// ... paste merjent-tools-report.mmin.js content here ...
+//#endregion !END MERJENT FULCRUM TOOLS!
+
+// M is already instantiated in the dist file as: const M = new ReportHelpers();
+// Your custom code starts here
+</code></pre>
+<p><strong>Important:</strong> The region markers allow Python update tools to replace MTools code while preserving your custom report logic.</p>
+<blockquote>
+<p><strong>Note:</strong> Report templates (HTML blocks) used by ReportHelpers come from the <a href="../merjent-fulcrum-core">merjent-fulcrum-core</a> sibling repository. These are bundled into the dist file during build.</p>
+</blockquote>
+<hr>
+<h2>Basic Concepts</h2>
+<h3>Report Environment</h3>
+<p>Fulcrum PDF reports use:</p>
+<ul>
+<li><strong>EJS templates</strong> - <code>&lt;%= %&gt;</code> for output, <code>&lt;% %&gt;</code> for logic</li>
+<li><strong>Predefined functions</strong> - <code>VALUE()</code>, <code>LABEL()</code>, <code>FIELDNAMES()</code>, etc.</li>
+<li><strong>Data object</strong> - Contains all record data</li>
+<li><strong>CONFIG object</strong> - Report configuration</li>
+</ul>
+<h3>Grid System</h3>
+<p>ReportHelpers uses a <strong>12-column grid</strong> by default:</p>
+<ul>
+<li>Each row spans 12 columns total</li>
+<li>Fields can span 1-12 columns</li>
+<li>Responsive layout automatically wraps</li>
+</ul>
+<pre class="prettyprint source"><code>|--- 4 cols ---|--- 4 cols ---|--- 4 cols ---|  (3 fields per row)
+|------ 6 cols ------|------ 6 cols ------|      (2 fields per row)
+|------------ 12 cols ----------------------|    (1 field per row)
+</code></pre>
+<h3>Field Collections</h3>
+<p>The <code>MfldColl</code> class manages collections of fields for grids:</p>
+<pre class="prettyprint source lang-javascript"><code>// Create field collection
+const fields = M.mkMflds(['field1', 'field2', 'field3']);
+
+// Modify individual fields
+fields.m('field1').span = 6;     // Make field1 span 6 columns
+fields.m('field2').opt = '-hn';  // Hide if null
+</code></pre>
+<hr>
+<h2>Instantiation</h2>
+<p>The dist file already instantiates <code>M</code> for you:</p>
+<pre class="prettyprint source lang-javascript"><code>// This is already in the dist file - you don't need to add it
+const M = new ReportHelpers();
+</code></pre>
+<p>Just paste the dist file content inside the region markers and start using <code>M</code> directly.</p>
+<hr>
+<h2>Building Sections</h2>
+<h3>Default Grid Section</h3>
+<p>The most common pattern - displays fields in a responsive grid:</p>
+<pre class="prettyprint source lang-javascript"><code>&lt;!-- SECTION: Site Information -->
+&lt;%
+  const secDn = 'site_information';
+  const dns = FIELDNAMES(secDn, {sections: false});
+  const mFlds = M.mkMflds(dns);
+  const secOpts = new SecOpt(null, LABEL(secDn), null);
+%>
+&lt;%- M.buildDefaultSection(secDn, mFlds, secOpts) %>
+</code></pre>
+<p><strong>What this does:</strong></p>
+<ol>
+<li>Gets all field data names in the section</li>
+<li>Creates a field collection</li>
+<li>Builds a grid with section header</li>
+<li>Auto-formats values (checkboxes for yes/no, etc.)</li>
+</ol>
+<p><strong>Result:</strong></p>
+<pre class="prettyprint source lang-html"><code>&lt;div class=&quot;mjnt-sectionHeader spacer-top&quot;>Site Information&lt;/div>
+&lt;div class=&quot;grid-lo default&quot;>
+  &lt;div class=&quot;rows&quot;>
+    &lt;div style=&quot;grid-column: span 4;&quot;>
+      &lt;div>Project Name&lt;/div>
+      &lt;div>West Ridge Survey&lt;/div>
+    &lt;/div>
+    &lt;div style=&quot;grid-column: span 4;&quot;>
+      &lt;div>Date&lt;/div>
+      &lt;div>2025-01-15&lt;/div>
+    &lt;/div>
+    &lt;!-- ... more fields -->
+  &lt;/div>
+&lt;/div>
+</code></pre>
+<hr>
+<h3>Customizing Fields in Grid</h3>
+<h4>Change Column Span</h4>
+<pre class="prettyprint source lang-javascript"><code>const dns = FIELDNAMES('site_info', {sections: false});
+const mFlds = M.mkMflds(dns);
+
+// Make project_name span full width
+mFlds.m('project_name').span = 12;
+
+// Make date and time each span half width
+mFlds.m('date').span = 6;
+mFlds.m('time').span = 6;
+</code></pre>
+<h4>Hide Fields When Null</h4>
+<pre class="prettyprint source lang-javascript"><code>mFlds.m('optional_field').opt = '-hn';  // Hide if null
+</code></pre>
+<h4>Choice Fields as Checkboxes</h4>
+<pre class="prettyprint source lang-javascript"><code>// By default, choice fields show as: &quot;Option1, Option2&quot;
+// To show as checkboxes:
+mFlds.m('habitat_types').opt = '-cb';   // Show all options
+mFlds.m('threats').opt = '-hcb';        // Hide unchecked options
+</code></pre>
+<h4>Remove Fields from Grid</h4>
+<pre class="prettyprint source lang-javascript"><code>const dns = FIELDNAMES('site_info', {sections: false});
+
+// Remove fields you don't want
+const filtered = M.arrRem(dns, ['internal_notes', 'gps_accuracy']);
+
+const mFlds = M.mkMflds(filtered);
+</code></pre>
+<hr>
+<h3>Yes/No Table Section</h3>
+<p>For sections with many yes/no fields, display as a table:</p>
+<pre class="prettyprint source lang-javascript"><code>&lt;!-- SECTION: Equipment Checklist -->
+&lt;%
+  const secDn = 'equipment_checklist';
+  const dns = FIELDNAMES(secDn, {sections: false});
+  const mFlds = M.mkMflds(dns);
+  const secOpts = new SecOpt(null, LABEL(secDn), null);
+%>
+&lt;%- M.buildYNSection(secDn, mFlds, secOpts) %>
+</code></pre>
+<p><strong>Result:</strong></p>
+<pre class="prettyprint source"><code>Equipment Checklist
+□ GPS Device
+☑ Camera
+☑ Field Notebook
+□ First Aid Kit
+</code></pre>
+<hr>
+<h3>Repeatable Sections</h3>
+<h4>Repeatable Default Grid</h4>
+<p>For repeatable sections with few items:</p>
+<pre class="prettyprint source lang-javascript"><code>&lt;!-- REPEATABLE: Species Observations -->
+&lt;%
+  const secDn = 'species_observations';
+  const dns = FIELDNAMES(secDn);
+  const mFlds = M.mkMflds(dns);
+  const secOpts = new SecOpt(null, LABEL(secDn), null);
+%>
+&lt;div class=&quot;mjnt-sectionHeader spacer-top&quot;>&lt;%= LABEL(secDn) %>&lt;/div>
+&lt;%- M.buildRepeatableSubsec(secDn, mFlds, secOpts) %>
+</code></pre>
+<p><strong>Result:</strong>
+Each repeatable item displayed as a subsection with grid layout.</p>
+<hr>
+<h4>Repeatable Table</h4>
+<p>For repeatable sections with many items, use table format:</p>
+<pre class="prettyprint source lang-javascript"><code>&lt;!-- REPEATABLE TABLE: Survey Points -->
+&lt;div class=&quot;clump&quot;>
+&lt;%
+  const secDn = 'survey_points';
+  const dns = FIELDNAMES(secDn);
+  const repFormId = '7d00...';  // Child form ID
+  const rows = M.repRequestRecords([RECORDID()], FORM().id, repFormId, null, M.addCH(dns));
+  const divRows = M.rows2Divs(rows, dns);
+%>
+  &lt;div class=&quot;mjnt-sectionHeader spacer-top&quot;>&lt;%=LABEL(secDn)%>&lt;/div>
+
+  &lt;!-- Adjust column count in style -->
+  &lt;div class=&quot;grid-lo open-table&quot; style=&quot;grid-template-columns:repeat(5, 1fr)&quot;>
+    &lt;!-- Table Headers -->
+    &lt;div class=&quot;header&quot;>
+      &lt;%- M.makeTableHeaders(dns) %>
+    &lt;/div>
+    &lt;!-- Table Rows -->
+    &lt;div class=&quot;rows&quot;>
+      &lt;%- divRows %>
+    &lt;/div>
+  &lt;/div>
+&lt;/div>
+</code></pre>
+<p><strong>Adjusting columns:</strong></p>
+<pre class="prettyprint source lang-css"><code>/* 3 columns */
+style=&quot;grid-template-columns:repeat(3, 1fr)&quot;
+
+/* 5 columns with custom widths */
+style=&quot;grid-template-columns: 2fr 1fr 1fr 1fr 3fr&quot;
+</code></pre>
+<hr>
+<h3>Photo Sections</h3>
+<h4>Simple Photo Field</h4>
+<pre class="prettyprint source lang-javascript"><code>&lt;!-- PHOTOS: Site Photos -->
+&lt;%
+  const dn = 'site_photos';
+  const photos = VALUE(dn);
+  const secOpts = new SecOpt(null, LABEL(dn), null);
+%>
+&lt;%- M.buildPhotoSection(photos, secOpts) %>
+</code></pre>
+<p><strong>Customizing columns:</strong></p>
+<pre class="prettyprint source lang-javascript"><code>// 1 column (default)
+M.buildPhotoSection(photos, secOpts);
+
+// 2 columns
+M.buildPhotoSection(photos, secOpts, 2);
+
+// 3 columns
+M.buildPhotoSection(photos, secOpts, 3);
+</code></pre>
+<hr>
+<h4>Photos in Repeatable</h4>
+<pre class="prettyprint source lang-javascript"><code>&lt;!-- PHOTOS: Observation Photos (in repeatable) -->
+&lt;%
+  const repDn = 'species_observations';
+  const dn = 'observation_photos';
+  const secOpts = new SecOpt(null, LABEL(dn), null);
+%>
+&lt;%- M.buildRepeatablePhotos(repDn, dn, secOpts) %>
+</code></pre>
+<p>This automatically groups photos by repeatable item.</p>
+<hr>
+<h3>Text Sections</h3>
+<p>For long-text fields (notes, descriptions):</p>
+<pre class="prettyprint source lang-javascript"><code>&lt;!-- SECTION: Field Notes -->
+&lt;div class=&quot;clump&quot;>
+  &lt;div class=&quot;mjnt-sectionHeader spacer-top&quot;>&lt;%=LABEL('field_notes')%>&lt;/div>
+  &lt;div style=&quot;white-space:pre-line;text-align:left;min-height:150px&quot;>
+    &lt;%=M.fldVal('field_notes')%>
+  &lt;/div>
+&lt;/div>
+</code></pre>
+<p><strong>Formatting options:</strong></p>
+<ul>
+<li><code>white-space:pre-line</code> - Preserves line breaks</li>
+<li><code>text-align:left</code> - Left-align text</li>
+<li><code>min-height</code> - Ensure minimum vertical space</li>
+</ul>
+<hr>
+<h3>Bullet Lists</h3>
+<p>Convert paragraph text to HTML bullet lists:</p>
+<pre class="prettyprint source lang-javascript"><code>&lt;!-- SECTION: Recommendations -->
+&lt;%
+  const recommendations = VALUE('recommendations');
+  const bulletHTML = M.buildBullets(recommendations);
+%>
+&lt;div class=&quot;clump&quot;>
+  &lt;div class=&quot;mjnt-sectionHeader spacer-top&quot;>Recommendations&lt;/div>
+  &lt;div class=&quot;bullet-list&quot;>
+    &lt;%- bulletHTML %>
+  &lt;/div>
+&lt;/div>
+</code></pre>
+<p><strong>Input:</strong></p>
+<pre class="prettyprint source"><code>Replace damaged fencing in northwest corner
+Schedule follow-up survey in spring
+Update habitat maps with new boundaries
+</code></pre>
+<p><strong>Output:</strong></p>
+<pre class="prettyprint source lang-html"><code>&lt;ul>
+  &lt;li>Replace damaged fencing in northwest corner&lt;/li>
+  &lt;li>Schedule follow-up survey in spring&lt;/li>
+  &lt;li>Update habitat maps with new boundaries&lt;/li>
+&lt;/ul>
+</code></pre>
+<hr>
+<h2>Value Formatting</h2>
+<h3>fldVal() Method</h3>
+<p>The <code>fldVal()</code> method (also available as <code>M.fVal()</code>) automatically formats field values for display:</p>
+<pre class="prettyprint source lang-javascript"><code>M.fldVal('field_name');
+M.fldVal('field_name', 'default_value');
+</code></pre>
+<p><strong>Automatic formatting:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Field Type</th>
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Null/Undefined</td>
+<td><code>null</code></td>
+<td><code>&quot;---&quot;</code></td>
+</tr>
+<tr>
+<td>Yes/No</td>
+<td><code>&quot;yes&quot;</code></td>
+<td><code>☑</code> (checkbox)</td>
+</tr>
+<tr>
+<td>Yes/No</td>
+<td><code>&quot;no&quot;</code></td>
+<td><code>□</code> (empty box)</td>
+</tr>
+<tr>
+<td>Choice</td>
+<td><code>{choice_values: ['A', 'B']}</code></td>
+<td><code>&quot;A, B&quot;</code></td>
+</tr>
+<tr>
+<td>Address</td>
+<td><code>{thoroughfare: '123 Main', locality: 'City'}</code></td>
+<td><code>&quot;123 Main, City, ST 12345&quot;</code></td>
+</tr>
+<tr>
+<td>Date</td>
+<td><code>&quot;2025-01-15&quot;</code></td>
+<td><code>&quot;2025-01-15&quot;</code></td>
+</tr>
+<tr>
+<td>Array</td>
+<td><code>['a', 'b', 'c']</code></td>
+<td><code>&quot;a, b, c&quot;</code></td>
+</tr>
+</tbody>
+</table>
+<h3>Customizing Yes/No Display</h3>
+<h4>As Checkboxes (Default)</h4>
+<pre class="prettyprint source lang-javascript"><code>M.fldVal('completed');  // ☑ or □
+</code></pre>
+<h4>As Text</h4>
+<pre class="prettyprint source lang-javascript"><code>const value = VALUE('completed');
+// Display &quot;Yes&quot; or &quot;No&quot; instead of checkbox
+&lt;%%= value === 'yes' ? 'Yes' : 'No' %>
+</code></pre>
+<h3>Customizing Choice Fields</h3>
+<h4>As Comma-Separated (Default)</h4>
+<pre class="prettyprint source lang-javascript"><code>M.fldVal('habitat_types');  // &quot;Wetland, Forest, Grassland&quot;
+</code></pre>
+<h4>As Checkboxes</h4>
+<pre class="prettyprint source lang-javascript"><code>mFlds.m('habitat_types').opt = '-cb';    // All options with checkboxes
+mFlds.m('habitat_types').opt = '-hcb';   // Only checked options
+</code></pre>
+<hr>
+<h2>Section Options (SecOpt)</h2>
+<p>The <code>SecOpt</code> class configures section appearance:</p>
+<pre class="prettyprint source lang-javascript"><code>new SecOpt(hidden, title, note);
+</code></pre>
+<h3>Parameters</h3>
+<ul>
+<li><strong>hidden</strong> (<code>boolean</code>) - Hide section if true</li>
+<li><strong>title</strong> (<code>string</code>) - Section header text</li>
+<li><strong>note</strong> (<code>string</code>) - Optional note below header</li>
+</ul>
+<h3>Examples</h3>
+<pre class="prettyprint source lang-javascript"><code>// Basic section
+new SecOpt(null, 'Site Information', null);
+
+// Section with note
+new SecOpt(null, 'Weather Conditions', 'Recorded at start of survey');
+
+// Conditionally hide section
+const hasPhotos = VALUE('site_photos').length > 0;
+new SecOpt(!hasPhotos, 'Site Photos', null);  // Hidden if no photos
+</code></pre>
+<h3>Converting to HTML</h3>
+<pre class="prettyprint source lang-javascript"><code>const secOpts = new SecOpt(null, 'Section Title', 'Optional note');
+
+// Generate section header HTML
+&lt;%- secOpts.toHtml() %>
+</code></pre>
+<hr>
+<h2>Report Template Structure</h2>
+<h3>Complete Report Example</h3>
+<pre class="prettyprint source lang-javascript"><code>//#region !START MERJENT FULCRUM TOOLS!
+// ... merjent-tools-report.mmin.js ...
+//#endregion !END MERJENT FULCRUM TOOLS!
+
+// M is already instantiated in the dist file
+const mjntLogo = 'https://example.com/logo.png';
+
+%>
+
+&lt;!--***************** BODY *****************-->
+&lt;div class=&quot;generic-theme2&quot;>
+
+  &lt;!--***************** TITLE BLOCK *****************-->
+  &lt;div id=&quot;titlebox&quot;>
+    &lt;div class=&quot;titleleft&quot;>
+      &lt;div>&lt;%= form.name %>&lt;/div>
+      &lt;div>&lt;%= VALUE('project_name') %>&lt;/div>
+      &lt;div>&lt;%= VALUE('report_id') %>&lt;/div>
+    &lt;/div>
+    &lt;div class=&quot;clear&quot;>&lt;/div>
+    &lt;div class=&quot;titleright&quot;>
+      &lt;div>&lt;img src=&quot;&lt;%= mjntLogo %>&quot;/>&lt;/div>
+    &lt;/div>
+  &lt;/div>
+
+  &lt;!--***************** SITE INFORMATION *****************-->
+  &lt;%
+    const siteDns = FIELDNAMES('site_information', {sections: false});
+    const siteFlds = M.mkMflds(siteDns);
+    const siteOpts = new SecOpt(null, 'Site Information', null);
+  %>
+  &lt;%- M.buildDefaultSection('site_information', siteFlds, siteOpts) %>
+
+  &lt;!--***************** OBSERVATIONS *****************-->
+  &lt;%
+    const obsDn = 'species_observations';
+    const obsDns = FIELDNAMES(obsDn);
+    const obsFlds = M.mkMflds(obsDns);
+    const obsOpts = new SecOpt(null, LABEL(obsDn), null);
+  %>
+  &lt;div class=&quot;mjnt-sectionHeader spacer-top&quot;>&lt;%= LABEL(obsDn) %>&lt;/div>
+  &lt;%- M.buildRepeatableSubsec(obsDn, obsFlds, obsOpts) %>
+
+  &lt;!--***************** PHOTOS *****************-->
+  &lt;%
+    const photos = VALUE('site_photos');
+    const photoOpts = new SecOpt(null, 'Site Photos', null);
+  %>
+  &lt;%- M.buildPhotoSection(photos, photoOpts, 2) %>
+
+  &lt;!--***************** NOTES *****************-->
+  &lt;div class=&quot;clump&quot;>
+    &lt;div class=&quot;mjnt-sectionHeader spacer-top&quot;>Field Notes&lt;/div>
+    &lt;div style=&quot;white-space:pre-line;text-align:left&quot;>
+      &lt;%=M.fldVal('field_notes')%>
+    &lt;/div>
+  &lt;/div>
+
+&lt;/div>
+</code></pre>
+<hr>
+<h2>CSS Styling</h2>
+<h3>MJNT_Report.css Classes</h3>
+<p>The report stylesheet provides these classes:</p>
+<h4>Layout Classes</h4>
+<pre class="prettyprint source lang-css"><code>.generic-theme2          /* Main report container */
+.mjnt-sectionHeader      /* Section headers */
+.mjnt-subsectionHeader   /* Subsection headers */
+.spacer-top              /* Top margin spacing */
+.clump                   /* Group related elements */
+.clear                   /* Clear floats */
+</code></pre>
+<h4>Grid Classes</h4>
+<pre class="prettyprint source lang-css"><code>.grid-lo.default         /* Default 12-column grid */
+.grid-lo.open-table      /* Table layout */
+.grid-lo.yn-table        /* Yes/No table */
+</code></pre>
+<h4>Usage Examples</h4>
+<pre class="prettyprint source lang-html"><code>&lt;!-- Add spacing above section -->
+&lt;div class=&quot;mjnt-sectionHeader spacer-top&quot;>Section Title&lt;/div>
+
+&lt;!-- Group elements together -->
+&lt;div class=&quot;clump&quot;>
+  &lt;div class=&quot;mjnt-sectionHeader&quot;>Title&lt;/div>
+  &lt;p>Content&lt;/p>
+&lt;/div>
+</code></pre>
+<hr>
+<h2>Advanced Techniques</h2>
+<h3>Conditional Sections</h3>
+<pre class="prettyprint source lang-javascript"><code>&lt;!-- Only show if field has value -->
+&lt;% if (VALUE('follow_up_required') === 'yes') { %>
+  &lt;%
+    const followUpDns = FIELDNAMES('follow_up_details', {sections: false});
+    const followUpFlds = M.mkMflds(followUpDns);
+    const followUpOpts = new SecOpt(null, 'Follow-Up Details', null);
+  %>
+  &lt;%- M.buildDefaultSection('follow_up_details', followUpFlds, followUpOpts) %>
+&lt;% } %>
+</code></pre>
+<h3>Custom Grid Layouts</h3>
+<pre class="prettyprint source lang-javascript"><code>&lt;!-- Mixed column spans -->
+&lt;%
+  const dns = ['project_name', 'date', 'time', 'surveyor', 'weather'];
+  const mFlds = M.mkMflds(dns);
+
+  // Full width
+  mFlds.m('project_name').span = 12;
+
+  // Half width
+  mFlds.m('date').span = 6;
+  mFlds.m('time').span = 6;
+
+  // Third width
+  mFlds.m('surveyor').span = 4;
+  mFlds.m('weather').span = 8;
+
+  const secOpts = new SecOpt(null, 'Survey Details', null);
+%>
+&lt;%- M.buildDefaultSection('survey_details', mFlds, secOpts) %>
+</code></pre>
+<h3>Photo Grid with Custom Captions</h3>
+<pre class="prettyprint source lang-javascript"><code>&lt;!-- Photos with custom captions -->
+&lt;%
+  const photos = VALUE('site_photos');
+  const photoGrid = photos.map((photo, index) => {
+    return `
+      &lt;div class=&quot;photo-item&quot;>
+        &lt;img src=&quot;${photo.url}&quot; alt=&quot;Photo ${index + 1}&quot;/>
+        &lt;div class=&quot;caption&quot;>
+          Photo ${index + 1}: ${photo.caption || 'No caption'}
+          &lt;br>Location: ${photo.latitude}, ${photo.longitude}
+        &lt;/div>
+      &lt;/div>
+    `;
+  }).join('');
+%>
+&lt;div class=&quot;mjnt-sectionHeader spacer-top&quot;>Site Photos&lt;/div>
+&lt;div class=&quot;photo-grid&quot;>
+  &lt;%- photoGrid %>
+&lt;/div>
+</code></pre>
+<h3>Summary Statistics</h3>
+<pre class="prettyprint source lang-javascript"><code>&lt;!-- Calculate and display statistics -->
+&lt;%
+  const observations = VALUE('species_observations');
+  const totalCount = observations.reduce((sum, obs) => {
+    return sum + (obs.form_values.count || 0);
+  }, 0);
+
+  const speciesList = observations.map(obs => obs.form_values.species_name);
+
+  // Utils methods are available statically in report templates
+  // You can also use M.arrUnique() if preferred (they're equivalent)
+  const uniqueSpecies = Utils.arrUnique(speciesList).length;
+%>
+&lt;div class=&quot;clump&quot;>
+  &lt;div class=&quot;mjnt-sectionHeader spacer-top&quot;>Survey Summary&lt;/div>
+  &lt;div class=&quot;grid-lo default&quot;>
+    &lt;div class=&quot;rows&quot;>
+      &lt;div style=&quot;grid-column: span 6;&quot;>
+        &lt;div>Total Observations&lt;/div>
+        &lt;div>&lt;%= observations.length %>&lt;/div>
+      &lt;/div>
+      &lt;div style=&quot;grid-column: span 6;&quot;>
+        &lt;div>Total Individual Count&lt;/div>
+        &lt;div>&lt;%= totalCount %>&lt;/div>
+      &lt;/div>
+      &lt;div style=&quot;grid-column: span 12;&quot;>
+        &lt;div>Unique Species Observed&lt;/div>
+        &lt;div>&lt;%= uniqueSpecies %>&lt;/div>
+      &lt;/div>
+    &lt;/div>
+  &lt;/div>
+&lt;/div>
+</code></pre>
+<hr>
+<h2>Best Practices</h2>
+<h3>1. Use FIELDNAMES() for Flexibility</h3>
+<pre class="prettyprint source lang-javascript"><code>// GOOD: Dynamic field list
+const dns = FIELDNAMES('section_name', {sections: false});
+
+// AVOID: Hardcoded field list
+const dns = ['field1', 'field2', 'field3'];
+</code></pre>
+<p>This way, adding/removing fields in Fulcrum automatically updates the report.</p>
+<h3>2. Group Related Code</h3>
+<pre class="prettyprint source lang-javascript"><code>&lt;!-- SECTION: Site Information -->
+&lt;%
+  // All section setup together
+  const secDn = 'site_information';
+  const dns = FIELDNAMES(secDn, {sections: false});
+  const mFlds = M.mkMflds(dns);
+  const secOpts = new SecOpt(null, LABEL(secDn), null);
+%>
+&lt;%- M.buildDefaultSection(secDn, mFlds, secOpts) %>
+</code></pre>
+<h3>3. Use Comments Liberally</h3>
+<pre class="prettyprint source lang-javascript"><code>&lt;!--***************** OBSERVATIONS TABLE *****************-->
+&lt;!--
+  This section displays all species observations in a table format.
+  Columns: Species Name, Count, Behavior, Location
+-->
+</code></pre>
+<h3>4. Test with Edge Cases</h3>
+<p>Test your report with:</p>
+<ul>
+<li>Records with no data</li>
+<li>Records with all fields filled</li>
+<li>Records with many repeatable items</li>
+<li>Records with no photos</li>
+<li>Records with long text fields</li>
+</ul>
+<h3>5. Preview Before Deploying</h3>
+<p>Always generate a preview PDF before deploying to production:</p>
+<ol>
+<li>Use test record with representative data</li>
+<li>Check layout at different page breaks</li>
+<li>Verify photos display correctly</li>
+<li>Test with different field values</li>
+</ol>
+<hr>
+<h2>Troubleshooting</h2>
+<h3>Issue: Grid layout looks wrong</h3>
+<p><strong>Cause:</strong> Column spans don't add up to 12</p>
+<p><strong>Solution:</strong></p>
+<pre class="prettyprint source lang-javascript"><code>// Check your spans
+mFlds.m('field1').span = 4;
+mFlds.m('field2').span = 4;
+mFlds.m('field3').span = 4;
+// Total = 12 ✓
+
+// WRONG
+mFlds.m('field1').span = 5;
+mFlds.m('field2').span = 5;
+mFlds.m('field3').span = 5;
+// Total = 15 ✗ (will wrap incorrectly)
+</code></pre>
+<h3>Issue: Photos not displaying</h3>
+<p><strong>Cause:</strong> Photo URLs not loading or incorrect photo object</p>
+<p><strong>Solution:</strong></p>
+<pre class="prettyprint source lang-javascript"><code>// Check if photos exist
+const photos = VALUE('site_photos');
+if (!photos || photos.length === 0) {
+  // No photos
+}
+
+// Check photo URL
+console.log(photos[0].url);
+</code></pre>
+<h3>Issue: Values showing as &quot;[object Object]&quot;</h3>
+<p><strong>Cause:</strong> Not using <code>fldVal()</code> for complex field types</p>
+<p><strong>Solution:</strong></p>
+<pre class="prettyprint source lang-javascript"><code>// WRONG
+&lt;%=VALUE('address')%>  // Shows [object Object]
+
+// CORRECT
+&lt;%=M.fldVal('address')%>  // Shows formatted address
+</code></pre>
+<hr>
+<h2>Next Steps</h2>
+<ul>
+<li>Review <a href="./tutorial-02_mtools.html">Mtools Tutorial</a> for data event helpers</li>
+<li>Explore <a href="./tutorial-03_mapp.html">MerjentApp Tutorial</a> for workflow automation</li>
+<li>Check the <a href="./ReportHelpers.html">API documentation</a> for all methods</li>
+<li>Experiment with custom layouts and styling</li>
+</ul>
+<hr>
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="./ReportHelpers.html">ReportHelpers API Reference</a></li>
+<li><a href="https://docs.fulcrumapp.com/docs/pdf-reports">Fulcrum PDF Reports Documentation</a></li>
+<li><a href="https://ejs.co/#docs">EJS Template Syntax</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout">CSS Grid Layout Guide</a></li>
+</ul></article>
+		</section>
+			</div>
+				<div class="col-md-3 side-content">
+					<nav class="toc hidden-print hidden-sm hidden-xs"></nav>
+				</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">Mtools Copyright © 2025 Mikel Paiva</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on 14th Apr 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+	
+</body>
+</html>
+<!-- end:readme.hbs -->
