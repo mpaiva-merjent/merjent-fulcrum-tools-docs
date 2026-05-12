@@ -1,0 +1,844 @@
+<!-- start:source.tmpl.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>Mtools/FulcrumHelpers.js</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+			<link type="text/css" rel="stylesheet" href="css/deprecated.css">
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"Merjent Fulcrum Tools","systemSummary":"Version 0.5.11","systemLogo":"","systemColor":"","navMembers":[{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"class","title":"Classes","summary":"All documented classes. View inheritance chains in each class description."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Mtools Copyright © 2025 Mikel Paiva","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":false,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"lineage, longname","search":true,"favicon":null,"stylesheets":["css/deprecated.css"],"scripts":["js/deprecated.js"],"monospaceLinks":false,"cleverLinks":true,"default":{"outputSourceFiles":false}};
+			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					Merjent Fulcrum Tools
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="DataEventHelpers.html">DataEventHelpers</a></li>
+											<li><a href="DataEventHelpers.MLoadRecords.html">DataEventHelpers.MLoadRecords</a></li>
+											<li><a href="DataEventHelpers.MRequest.html">DataEventHelpers.MRequest</a></li>
+											<li><a href="FieldHelpers.html">FieldHelpers</a></li>
+											<li><a href="FieldHelpers.Mfld.html">FieldHelpers.Mfld</a></li>
+											<li><a href="FieldHelpers.MfldColl.html">FieldHelpers.MfldColl</a></li>
+											<li><a href="FulcrumHelpers.html">FulcrumHelpers</a></li>
+											<li><a href="MerjentApp.html">MerjentApp</a></li>
+											<li><a href="ReportHelpers.html">ReportHelpers</a></li>
+											<li><a href="ReportHelpers.SecOpt.html">ReportHelpers.SecOpt</a></li>
+											<li><a href="RequestHelpers.html">RequestHelpers</a></li>
+											<li><a href="Utils.html">Utils</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_module.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-MtoolsDataEvents.html">MtoolsDataEvents</a></li>
+											<li><a href="module-MtoolsMerjentApp.html">MtoolsMerjentApp</a></li>
+											<li><a href="module-MtoolsReports.html">MtoolsReports</a></li>
+											<li><a href="module-MtoolsUtils.html">MtoolsUtils</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="DefaultTemplate.html">DefaultTemplate</a></li>
+											<li><a href="LockingMixins.html">LockingMixins</a></li>
+											<li><a href="PermissionMixins.html">PermissionMixins</a></li>
+											<li><a href="PhotoMixins.html">PhotoMixins</a></li>
+											<li><a href="StatusMixins.html">StatusMixins</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_tutorial.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="tutorial-01_overview.html">01: Overview</a></li>
+											<li><a href="tutorial-02_mtools.html">02: Mtools for Data Events</a></li>
+											<li><a href="tutorial-03_mapp.html">03: MerjentApp (mApp)</a></li>
+											<li><a href="tutorial-04_pdf-reports.html">04: Mtools for PDF Reports</a></li>
+											<li><a href="tutorial-A1_mapp-cheat-sheet.html">A1: mApp Cheat Sheet</a></li>
+											<li><a href="tutorial-A2_mloadrecords.html">A2: MLoadRecords</a></li>
+											<li><a href="tutorial-A3_report-template-cheatsheet.html">A3: Report Template Cheat Sheet</a></li>
+											<li><a href="tutorial-B1_merjent-dev.html">B1: Development Guide</a></li>
+											<li><a href="tutorial-B2_general-dev.html">B2: General Development Resources</a></li>
+											<li><a href="tutorial-Z1_CHANGELOG.html">Changelog</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">source</span>
+				<h1><span class="name">Mtools/FulcrumHelpers.js</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">import { Utils } from './Utils';
+//#region *****************************  FULCRUM DATA EVENT HELPERS **********************************/
+/**
+ * @class FulcrumHelpers
+ * @extends Utils
+ * @summary Helper methods specific to Fulcrum
+ * @description The methods in this class use Fulcrum expressions to complete common sets of actions used in Merjent Fulcrum Apps.
+ *
+ * **Inheritance:** Utils → **FulcrumHelpers**
+ *
+ * **Extended by:** {@link RequestHelpers}, {@link FieldHelpers}
+ *
+ * **Inherited Methods:** All {@link Utils} methods are available via inheritance.
+ * Refer to the {@link Utils} class documentation for utility methods like `isBlank()`, `arrSort()`, `dt2iso()`, etc.
+ *
+ * **Methods Defined in This Class:** Only methods specific to Fulcrum operations are documented below.
+ */
+class FulcrumHelpers extends Utils{
+  constructor(){
+    super();
+    this.recordLinkClearAutoPops = this.recordLinkClearAutoPops.bind(this);
+  }
+
+  // getUserInit = this.userInit
+  // setLatLon = this.popLatLon
+  // check4PhotoCaps = this.photoCheck4Caps
+  // checkPhotoCapLen = this.photoCheckCapLen
+  // getFldSummaryObj = this.makeDnsRow
+  // rep2Obj = this.makeRepRows
+  // obj2Summary = this.rows2Summary
+  // convertFV2DN = this.fv2DnRows
+
+  /**
+   * @summary *Developer Unhide*
+   * @description Sets all fields visible if USERROLE() == 'Owner'
+   *
+   * @param {*} event 
+   * @returns {void} 
+   */
+  devUnhide(event){
+    const dns = DATANAMES();
+    return ISROLE('Owner') ? 
+      dns.forEach(dn => SETHIDDEN(dn, false)) : null;
+  }
+
+  /**
+   * @summary *Developer Edit*
+   * @description Sets all fields editable if USERROLE() == 'Owner'
+   *
+   * @param {*} event 
+   * @returns {void} 
+   */
+  devEdit(event){
+    const dns = DATANAMES();    
+    return ISROLE('Owner') ?
+      dns.forEach(dn => SETREADONLY(dn, false)) : null;
+  }
+  
+  /**
+   * @summary *Set All Read-only*
+   * @description Sets all fields to readonly or editable or default, except those in the exclude list or not in the section if specified.
+   *
+   * @param {boolean} [bol=false] - Set field to readonly, null sets to default.
+   * @param {string[]} [exc] - Array of datanames to exclude
+   * @param {string} [sec=''] - Restrict function to only data names in this section
+   * @returns {void}
+   */
+  setAllRO(bol = false, exc, sec = ''){
+    var excludeFlds = exc ? exc : [];
+    var dns = sec ? FIELDNAMES(sec) : DATANAMES();
+    for(const dn of dns) {
+      if (!excludeFlds.includes(dn)) {
+        SETREADONLY(dn, bol);
+      }
+    };
+  }
+
+  /**
+   * @description Checks if current user email ends in'merjent.com'
+   * 
+   * @returns {boolean}
+   */
+  isMerjentEmail(){
+    var email = EMAIL()
+    const dom = Utils.strAfter(email,'@')
+    return dom == 'merjent.com' ? true : false
+  }
+
+  /** 
+   * @description Disable editing location 
+   * 
+   * @param {*} event 
+   * @returns {void}
+  */
+  disableLocationEdit(event){
+    var config = {
+      auto_location_enabled: false,
+      auto_location_minimum_accuracy: 10,
+      manual_location_enabled: false,
+      edit_locations_enabled: false,
+      edit_durations_enabled: false
+    };
+    SETFORMATTRIBUTES(config);
+  }
+
+  /**
+   * @summary *User Initials*
+   * @description Gets current users initials
+   *
+   * @returns {string} 
+   */
+  userInit(){
+    var names = USERFULLNAME().split(' ');
+    var inits = names.map(x => x.substring(0, 1).toUpperCase());
+    return inits.join('');
+  }
+
+  /**
+   * @summary *Get Report ID Variables*
+   * @description Get information pieces used to build report id
+   *
+   * @param {string} [reportDate=null] 
+   * @returns {{ yr: string, month: string, day: string, hr: string, min: string, init: string, report_yr: string, report_month: string, report_day: string}} 
+   */
+  getReportIDvars(reportDate=null){
+    const dt = reportDate || new Date();
+    const yr = dt.getFullYear().toString();
+    const month = this.padZero(dt.getMonth() + 1, 2);
+    const day = this.padZero(dt.getDate(), 2);
+    const hr = this.padZero(dt.getHours(), 2);
+    const min = this.padZero(dt.getMinutes(), 2);
+    const init = this.userInit();
+
+    return {"yr":yr,"month":month,"day":day,"hr":hr,"min":min,"init":init}
+  }
+
+  /**
+   * @summary Require photo to be taken landscape
+   * @description Validation for photo orientation, must be called from an ONCHANGE event of a photo field.
+   *
+   * @param {*} event 
+   * @returns {boolean}
+   */
+  photoLandscape(event){
+    if (event.value.width &lt; event.value.height) {
+      INVALID('Please retake the photo in landscape orientation.');
+      return false
+    } else {return true}
+  }
+
+  /**
+   * @summary *Photo Set Location*
+   * @description Sets record location to the location of the first photo taken
+   *
+   * @param {*} event 
+   * @returns {void}
+   */
+  photoSetLoc(event){
+    var dn = event.field;
+    if (!VALUE(dn)) {
+      var lat = event.value.latitude;
+      var lon = event.value.longitude;
+      SETLOCATION(lat, lon);
+      //ALERT("Record Location Set to: " + lat.toString() + lon.toString())
+    }
+  }
+
+  /**
+   * @summary *Clear Record-Link Auto-populates*
+   * @description If the value of the record-link field is null, on change, this data event will clear all of the auto-populate fields. 
+   * @param {*} event 
+   * @returns {void}
+   * @example ON('change', 'project_name', clearRLAutoPops)
+   */
+  clearRLAutoPops(event){
+    if(event.value &amp;&amp; event.value.length > 0) return
+
+    const fvDict = this.flipKVpair(this.makeFvDict(FORM()))
+    const fld = FIELD(event.field)
+    const defaults = fld.record_defaults
+    const keys = defaults.map(x=>x.destination_field_key)
+    const dns = keys.map(x => fvDict[x])
+
+    dns.forEach((x) => this.clear(x))
+  }
+
+  /**
+   * @summary *Populate Latitude Longitude*
+   * @description For use in data event.
+   * Sets value of {data_name} to current lat/lon as a string "lat,lon". 
+   * Alerts if no GPS info.
+   *
+   * @param {string} [dn=null] - output field data name to write to
+   * @returns {string}
+   */
+  popLatLon(dn){
+    var loc = CURRENTLOCATION()
+    if(loc){
+      var output = loc.latitude + ',' + loc.longitude
+      if(dn){
+        SETVALUE(dn,output)
+      }
+      return output
+    } else {
+      ALERT('No GPS information available')
+    }
+  }
+
+  /**
+   * @summary *Photo Check for Captions*
+   * @description Checks photofield for photos without a caption. Returns an Alert.
+   *
+   * @param {string} dn 
+   * @returns {boolean}
+   */
+  photoCheck4Caps(dn) {
+    const photos = VALUE(dn) || [];
+    const captions = photos.map(x => x.caption);
+    for (const caption of captions) {
+      if (!caption) {
+        ALERT('This report contains photos without a caption');
+        return false;
+      }
+    }
+    return true;
+  }
+
+  /**
+   * @summary *Photo Check Caption Length*
+   * @description Description placeholder
+   *
+   * @param {string} dn 
+   * @param {number} max 
+   * @returns {void}
+   */
+  photoCheckCapLen(dn,max){
+    var photos = VALUE(dn)
+    for(const photo of photos){
+      if(photo &amp;&amp; photo.caption &amp;&amp; photo.caption.length > max){
+        ALERT(`Photo caption ${max}`)
+      }
+    }
+  }
+  
+  /**
+   * @summary *Make data_names Row*
+   * @description Creates an object from a list of data names. Excludes Labels, Sections and HyperlinkFields.
+   *
+   * @param {*} dns 
+   * @param {Array.&lt;string>} [exc=[]] 
+   * @returns {{}}
+   * @todo dns2Row 
+   */
+  makeDnsRow(dns,exc=[]){
+    var excludeFldTypes = ['Label','Section','HyperlinkField'];
+    var dnsF = dns.filter((x) => !excludeFldTypes.includes(FIELDTYPE(x))).filter((x) => !exc.includes(x)); 
+    var obj = {};
+    for(const dn of dnsF){
+      var val = VALUE(dn)
+      FIELDTYPE(dn) == 'ChoiceField' || FIELDTYPE(dn) == 'ClassificationField' ? obj[dn] = CHOICEVALUES(val) :
+        FIELDTYPE(dn) != 'ChoiceField' &amp;&amp; FIELDTYPE(dn) != 'ClassificationField' ? obj[dn] = val :
+          FIELDTYPE(dn) == 'DateTimeField' ? obj[dn] =  Utils.dt2iso(val) :
+            FIELDTYPE(dn) == 'Repeatable' ? obj[dn] = this.makeRepRows(dn,exc) : obj[dn] = JSON.stringify(val)
+    }
+    return obj
+  }
+  
+  /**
+   * @summary *Make Repeatable Rows*
+   * @description Converts a repeatable to an Array of Objects.
+   * Input repeatable data name.
+   *
+   * @param {string} repeatableDn 
+   * @param {string[]} [exc=[]] 
+   * @returns {Object[]} 
+   * @todo rep2Rows
+   */
+  makeRepRows(repeatableDn,exc=[]){
+    var repeatable = VALUE(repeatableDn);
+    var excludeFldTypes = ['Label','Section','Repeatable','HyperlinkField'];
+    var dns = FIELDNAMES(repeatableDn).filter((x) => !excludeFldTypes.includes(FIELDTYPE(x))).filter((x) => !exc.includes(x)); 
+    var rows = [];
+  
+    if(VALUE(repeatableDn)){
+      for(var i = 0; i &lt; repeatable.length; i++){
+        var obj = {}
+        obj["itemNo"] = i+1
+        for(const dn of dns){
+          var val = REPEATABLEVALUES(repeatable,dn)[i]
+          FIELDTYPE(dn) == 'ChoiceField' || FIELDTYPE(dn) == 'ClassificationField' ? obj[dn] = CHOICEVALUES(val) :
+            FIELDTYPE(dn) != 'ChoiceField' &amp;&amp; FIELDTYPE(dn) != 'ClassificationField' ? obj[dn] = val :
+              FIELDTYPE(dn) == 'DateTimeField' ? obj[dn] =  Utils.dt2iso(val) : obj[dn] = JSON.stringify(val)
+        }
+        rows.push(obj)
+      }
+    }
+    return rows
+  }
+
+  /**
+   * @summary *Rows to Summary*
+   * @description Converts an array of objects to an array of summary strings, excluding specified keys.
+   * Each summary string lists key-value pairs separated by commas.
+   * @param {Object[]} rows - Array of objects to summarize.
+   * @param {string[]} [exc=[]] - Array of keys to exclude from summary.
+   * @returns {string[]}
+   */
+  rows2Summary(rows, exc = []) {
+    const outList = [];
+    for (const row of rows) {
+      let line = '';
+      const keys = Object.keys(row).filter(key => !exc.includes(key));
+      for (const key of keys) {
+        line += `${key}: ${row[key]},`;
+      }
+      outList.push(line);
+    }
+    return outList;
+  }
+
+  /**
+   * @summary *Form Values to Data Names Rows*
+   * @description Converts an array of Fulcrum rows to an array of objects with data names as keys.
+   * Uses a dictionary to map form_value keys to data names.
+   * @param {Object[]} rows - Array of Fulcrum record objects.
+   * @param {Object} dict - Dictionary mapping form_value keys to data names.
+   * @returns {Object[]} - Array of objects with mapped keys and values.
+   */
+  fv2DnRows(rows, dict) {
+    const output = [];
+    for (const row of rows) {
+      const newRow = {};
+      newRow.status = row.status;
+      newRow.id = row.id;
+      newRow.latitude = row.latitude;
+      newRow.longitude = row.longitude;
+      newRow.geometry = row.geometry;
+      const keys = Object.keys(row.form_values);
+      for (const key of keys) {
+        newRow[dict[key]] = row.form_values[key];
+      }
+      output.push(newRow);
+    }
+    return output;
+  }
+
+  /**
+   * @summary *Load Records*
+   * @description Wrapper function for LOADRECORDS() expression.
+   *
+   * @param {Array.&lt;string>} arr 
+   * @param {string} formID 
+   * @param {Function} callback - function to process records and store them to a variable or field. Callback must have one parameter for records. See example.
+   * @return {void}
+   * @example
+   * processRecordsCallback(records){
+   *   loadedRecords = fv2DnRows(records,loadedFvs)
+   *   var out = []
+   *   for(const record of loadedRecords){
+   *     var add = record.scientific_name + ' - ' + record.common_name
+   *     out.push(add)
+   *   }
+   *   SETVALUE('result',out.join('\n'))
+   * }
+   * 
+   * M.loadRecords(recIDs,appID,processRecordsCallback)
+   * 
+   */
+  loadRecords(arr,formID,callback){
+    const opts = !arr ? {'form_id':formID} : {'ids':arr,'form_id':formID};
+    const pullRecords = (err,r)=>{
+      if(err){ALERT('LOADRECORDS failed:' + JSON.stringify(err));}else{callback(r.records)}
+    }
+    LOADRECORDS(opts,pullRecords);
+  }
+
+  /**
+   * @summary *Get Repeatable Parent*
+   * @description get parent data_name for a field. Returns only the next parent that is a repeatable.
+   * @param {string} dn 
+   * @returns {string} - data_name of the parent (repeatable or section) of a field. If there is no parent, it returns null.
+   * @example getRepDn('inspector_name') // returns 'background'
+   * @todo repParent? digParent? - make generic recursion function that produces row of all parents and parent types. For repeatables, secctions or elements of form schema.
+   */
+  getRepDn(dn = '') {
+    var obj = FIELD(dn);
+    var output = null;
+    if(!obj){return output}
+    function traverseObject(obj) {
+      if (obj.hasOwnProperty('parent') &amp;&amp; obj.parent.type == 'Repeatable') {
+        output = obj.parent.data_name;
+        return;
+      }
+      else if (obj.hasOwnProperty('parent') &amp;&amp; obj.parent.type === 'Section') {
+        traverseObject(obj.parent); // Recursively traverse nested objects
+      }
+      else {
+        return;
+      }
+    }
+    traverseObject(obj);
+    return output;
+  };
+
+  // /**
+  //  * Recursively collects all leaf elements from a Fulcrum form schema.
+  //  * @param {Object} parent - The parent element to start from.
+  //  * @param {Array} collector - The array to collect elements into.
+  //  * @todo digObj - REMOVE this and extractFormElements. Use makeFvDict keys instead.
+  //  */
+  // digElements(parent, collector) {
+  //   if (parent.elements &amp;&amp; Array.isArray(parent.elements)) {
+  //     for (const subElement of parent.elements) {
+  //       this.digElements(subElement, collector);
+  //     }
+  //   } else if (parent) {
+  //     collector.push(parent);
+  //   }
+  // }
+  
+  // /**
+  //  * @description Input a fulcrum form schema Object and returns a dictionary object of {data_name:form_value}.
+  //  *
+  //  * @param {Object} form - Fulcrum form schema object.
+  //  * @returns {Array} - Array of leaf elements.
+  //  * @todo WRONG remove
+  //  */
+  // extractFormElements(form) {
+  //   const output = [];
+  //   if (form &amp;&amp; form.elements) {
+  //     for (const element of form.elements) {
+  //       this.digElements(element, output);
+  //     }
+  //   }
+  //   return output;
+  // }
+
+  /**
+   * @summary *Dig Element*
+   * @description Recursively collects all data_name:form_value pairs from element. Adds element to collector array.
+   * Primarily used as a sub-function within makeFvDict.
+   * @param {Object} el - The parent element to start from.
+   * @param {object} collector - The object to collect elements into.
+   * @returns {void} - Adds element to collector array
+   */
+  digElement(el,collector){
+    if (!el) return;
+    if (el.data_name &amp;&amp; el.key) collector[el.data_name] = el.key;
+    if (Array.isArray(el.elements)) {
+      for (const subel of el.elements) {
+        if (!subel) continue;
+        this.digElement(subel, collector);
+      }
+    }
+  }
+
+  /**
+   * @summary *Make Form Values Dictionary*
+   * @description Input a fulcrum form schema Object and returns a dictionary object of {data_name:form_value}.
+   *
+   * @param {Object} form - Fulcrum form schema object.
+   * @returns {{}} - Dictionary of {data_name:form_value}.
+   */
+  makeFvDict(form) {
+    var out = {}
+    if (form &amp;&amp; form.elements) {
+      for (const el of form.elements) {
+        this.digElement(el, out);
+      }
+    }
+    return out;
+  }
+
+  /**
+   * @summary *Make Local Form Values Dictionary*
+   * @description Creates a local dictionary of {form_value:data_name} for fields within the specified element or the entire form if no element is provided.
+   * @param {Object|null} el - Fulcrum form element object. If null, uses the entire form.
+   * @returns {{}} - Dictionary of {form_value:data_name}.
+   */
+  mkLocalFvDict(el=null){
+    const dns = el ? FIELDNAMES(el) : DATANAMES()
+    const fvDict = {}
+    dns.forEach((dn) => {const fld = FIELD(dn); fvDict[fld.key]=dn})
+    return fvDict
+  }
+
+  /**
+   * @summary Clear record-link autopopulate fields if record link is null
+   * @description If the value of the record-link field is null, on change, this data event will clear all of the auto-populate fields.
+   * This function requires that the form values dictionary be created with makeFvDict and that the record-link field has its record defaults set up in the form schema.
+   * @param {*} event 
+   * @returns {void}
+   */
+  recordLinkClearAutoPops(event){
+    if(event.value &amp;&amp; event.value.length > 0) return;
+    const dn = event.field;
+    const fvs = this.mkLocalFvDict();
+    const fieldMap = FIELD(dn).record_defaults;
+    if(!fieldMap) return;
+
+    const autoFvs = fieldMap.map(x => x.destination_field_key);
+    autoFvs.forEach((fv) => SETVALUE(fvs[fv],null));
+  }
+
+  /**
+   * @summary *Repeatable to JSON Rows*
+   * @description Converts a repeatable field's value into an array of objects with data names as keys.
+   * @param {string} repDn - Data name of the repeatable field.
+   * @param {string[]} [exc=[]] - Array of data names to exclude.
+   * @returns {Object[]} - Array of objects representing each row in the repeatable.
+   */
+  repeatable2jrows(repDn,exc=[]){
+    if(!VALUE(repDn)) return []
+
+    const fvDict = this.mkLocalFvDict(repDn)
+    const repVals = VALUE(repDn)
+    var excludeFldTypes = ['Label','Section','Repeatable','HyperlinkField'];
+    const outArr = []
+    
+    for(val of repVals){
+      const fvs = val.form_values
+      const outObj = {}
+      Object.keys(fvs).forEach((key) => {
+        const skip = exc.includes(fvDict[key]) || excludeFldTypes.includes(FIELDTYPE(fvDict[key]))
+        if(skip) return
+        outObj[fvDict[key]] = fvs[key]
+      })
+      outArr.push(outObj)
+    }
+    return outArr
+  }
+
+  
+  /**
+   * @description Description placeholder
+   *
+   * @param {string} formID - fulcrum form id
+   * @param {Function} callback - function to process form schema
+   * @returns {void}
+   * 
+   * @example 
+   *  processFormCallback(form){
+   *     loadedFvs = M.flipKVpair(this.makeFvDict(form))
+   *  }
+   * 
+   * M.loadForm(formID,processFormCallback)
+   */
+  loadForm(formID,callback){
+    LOADFORM(
+      {id:formID},
+      (err,r)=>{if(err){ALERT('LOADFORM failed:' + JSON.stringify(err))}else{callback(r.form)}}
+    )
+  }
+
+  /**
+   * @summary *Each Section Data Name*
+   * @description Performs callback function on each data name in a section.
+   *
+   * @param {string} secDn - Section data name.
+   * @param {Function} callback - Function to perform for each data name.
+   * @returns {void}
+   */
+  eachSecDn(secDn,callback,exc=[]){
+    if(FIELDNAMES(secDn)){
+      var dns = FIELDNAMES(secDn)
+      for(const dn of dns){
+        if(!exc.includes(dn)){
+          callback(dn)
+        }
+      }
+    }
+  }
+
+  /**
+   * @description Clears value in fulcrum field.
+   *
+   * @param {string} dn - Data name to clear.
+   * @returns {void}
+   */
+  clear(dn){
+    if(VALUE(dn)){
+      SETVALUE(dn,null)
+    }
+  }
+
+  /**
+   * @description Description placeholder
+   *
+   * @param {*} repVals - this is from VALUE(repeatable data name)
+   * @param {string} dnFv 
+   * @returns {{}} 
+   */
+  getRepeatableValues(repVals,dnFv){ 
+    var out =[]
+    for(const row of repVals){
+      var formVals = row.form_values
+      var dnVal = {}
+      
+      Object.keys(formVals).forEach(function(fv){
+        dnVal[dnFv[fv]] = formVals[fv] || null
+      })
+      out.push(dnVal)
+    }
+    return out
+  }/** @description Description placeholder */
+  ;
+    
+  /**
+   * @description Description placeholder
+   *
+   * @param {string} parentDn 
+   * @param {string} childDn 
+   * @param {string} dnFv 
+   * @returns {{}} 
+   * @todo deprecate or add recursion
+   */
+  getNestedRepeatable(parentDn,childDn,dnFv){
+    var outputList = []
+    var parentRep = VALUE(parentDn)
+    if(parentRep){
+      for(var i = 0; i &lt; parentRep.length; i++){
+        var output = {}
+        var childRep = parentRep[i].form_values[dnFv[childDn]] || null
+        if(childRep){
+          output.task = parentRep[i].form_values[dnFv.task].choice_values[0] || null
+          output.subtask = parentRep[i].form_values[dnFv.subtask].choice_values[0] || null
+          output[childDn] = this.getRepeatableValues(childRep)
+          outputList.push(output)
+        }
+      }
+    }
+    return outputList
+  }
+
+  /**
+   * @summary *Timed Processing Message*
+   * @description block input into form with an alert message for a set time in milliseconds.
+   *
+   * @param {number} time - milliseconds for settimeout
+   * @returns {void}
+   * @todo add example
+   */
+  timedProcessingMsg(time){
+    var showAlert = true
+    var msgOpts = {title:'Standby',message:'Requesting Data...',buttons:['ok']}
+    var turnOff = function(result){
+      if(showAlert){
+        MESSAGEBOX(msgOpts,turnOff);
+      } else{ }
+    }
+    SETTIMEOUT(function(){showAlert=false},time)
+    MESSAGEBOX(msgOpts,turnOff);
+  }
+  
+  /**
+   * @summary *Value Processing Message*
+   * @description block input into form with an alert message until a value is present in the specified data name or until a settimeout.
+   * @example
+   * function getPlss(){
+   *   M.getPlss(enterPlss)
+   *   M.valProcessingMsg('legal_land_description',6000)
+   * }
+   * 
+   * ON('click', 'get_plss', getPlss);
+   * 
+   * @param {string} dn 
+   * @param {number} time - milliseconds for settimeout
+   * @returns {void}
+   * @tod add example
+   */
+  valProcessingMsg(dn,time,isBlank=Utils.isBlank){
+    SETVALUE(dn,null)
+    var showAlert = true
+    var msgOpts = {title:'Standby',message:'Requesting Data...',buttons:['ok']}
+    var turnOff = function(result){
+      if(isBlank(dn) &amp;&amp; showAlert){
+        MESSAGEBOX(msgOpts,turnOff);
+      } 
+      if(isBlank(dn) &amp;&amp; !showAlert){
+        msgOpts.message='TIMEOUT: Unable to retrieve data within ' + time.toString + ' milliseconds'
+        MESSAGEBOX(msgOpts,turnOff);
+      } else{}
+    }
+    SETTIMEOUT(function(){showAlert=false},time)
+    MESSAGEBOX(msgOpts,turnOff);
+  }
+
+
+
+}
+//#endregion
+
+export { FulcrumHelpers };
+</code></pre>
+		</section>
+			</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">Mtools Copyright © 2025 Mikel Paiva</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on 12th May 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<script src="js/deprecated.js"></script>
+	
+</body>
+</html>
+<!-- end:source.tmpl.hbs -->

@@ -1,0 +1,709 @@
+<!-- start:source.tmpl.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>Mtools/FieldHelpers.js</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+			<link type="text/css" rel="stylesheet" href="css/deprecated.css">
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"Merjent Fulcrum Tools","systemSummary":"Version 0.5.11","systemLogo":"","systemColor":"","navMembers":[{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"class","title":"Classes","summary":"All documented classes. View inheritance chains in each class description."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Mtools Copyright © 2025 Mikel Paiva","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":false,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"lineage, longname","search":true,"favicon":null,"stylesheets":["css/deprecated.css"],"scripts":["js/deprecated.js"],"monospaceLinks":false,"cleverLinks":true,"default":{"outputSourceFiles":false}};
+			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					Merjent Fulcrum Tools
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="DataEventHelpers.html">DataEventHelpers</a></li>
+											<li><a href="DataEventHelpers.MLoadRecords.html">DataEventHelpers.MLoadRecords</a></li>
+											<li><a href="DataEventHelpers.MRequest.html">DataEventHelpers.MRequest</a></li>
+											<li><a href="FieldHelpers.html">FieldHelpers</a></li>
+											<li><a href="FieldHelpers.Mfld.html">FieldHelpers.Mfld</a></li>
+											<li><a href="FieldHelpers.MfldColl.html">FieldHelpers.MfldColl</a></li>
+											<li><a href="FulcrumHelpers.html">FulcrumHelpers</a></li>
+											<li><a href="MerjentApp.html">MerjentApp</a></li>
+											<li><a href="ReportHelpers.html">ReportHelpers</a></li>
+											<li><a href="ReportHelpers.SecOpt.html">ReportHelpers.SecOpt</a></li>
+											<li><a href="RequestHelpers.html">RequestHelpers</a></li>
+											<li><a href="Utils.html">Utils</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_module.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-MtoolsDataEvents.html">MtoolsDataEvents</a></li>
+											<li><a href="module-MtoolsMerjentApp.html">MtoolsMerjentApp</a></li>
+											<li><a href="module-MtoolsReports.html">MtoolsReports</a></li>
+											<li><a href="module-MtoolsUtils.html">MtoolsUtils</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="DefaultTemplate.html">DefaultTemplate</a></li>
+											<li><a href="LockingMixins.html">LockingMixins</a></li>
+											<li><a href="PermissionMixins.html">PermissionMixins</a></li>
+											<li><a href="PhotoMixins.html">PhotoMixins</a></li>
+											<li><a href="StatusMixins.html">StatusMixins</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_tutorial.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="tutorial-01_overview.html">01: Overview</a></li>
+											<li><a href="tutorial-02_mtools.html">02: Mtools for Data Events</a></li>
+											<li><a href="tutorial-03_mapp.html">03: MerjentApp (mApp)</a></li>
+											<li><a href="tutorial-04_pdf-reports.html">04: Mtools for PDF Reports</a></li>
+											<li><a href="tutorial-A1_mapp-cheat-sheet.html">A1: mApp Cheat Sheet</a></li>
+											<li><a href="tutorial-A2_mloadrecords.html">A2: MLoadRecords</a></li>
+											<li><a href="tutorial-A3_report-template-cheatsheet.html">A3: Report Template Cheat Sheet</a></li>
+											<li><a href="tutorial-B1_merjent-dev.html">B1: Development Guide</a></li>
+											<li><a href="tutorial-B2_general-dev.html">B2: General Development Resources</a></li>
+											<li><a href="tutorial-Z1_CHANGELOG.html">Changelog</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">source</span>
+				<h1><span class="name">Mtools/FieldHelpers.js</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">import { FulcrumHelpers } from "./FulcrumHelpers";
+import { ReportTemplateBlocks } from "./ReportTemplateBlocks";
+import { Utils } from "./Utils";
+
+//#region ********************************* FIELD HELPERS ************************************/
+/**
+ * @summary Options for Mfld instances
+ * @description Options for Mfld to specify drawing of values in Merjent pdf reports.
+ * Properties are strings starting with -. ie: '-hcb'.
+ *
+ * Entire opt property of Mfld is a concatenated string. ie: '-cb-hcb-rdo'
+ * @memberof FieldHelpers
+ * @typedef {string} MfldOpt
+ * @property {string} na - replaces null values with 'N/A' instead of '---'
+ * @property {string} syn - short yes no: Positive and negative labels replaced with first character. Neutral replaced with first 3 characters. (ie: Y | N | N/A)
+ * @property {string} cb - Display choice values as a list of checkboxes. Checkboxes will be displayed vertically.
+ * @property {string} hcb - Modifier for -cb. Checkboxes will be displayed horizontally.
+ * @property {string} yon - yes no only: Neutral label will not be displayed.
+ * @property {string} rdo - Modifier for -cb. Checkboxes will be replaced with radio buttons.
+ * @property {string} hn - hide null values: Do not display field if value is null.
+ */
+
+
+/**
+ * @class FieldHelpers
+ * @extends FulcrumHelpers
+ * @summary Helper methods for rendering field values in pdf reports
+ * @description This class contains helper methods for working with fields in a form.
+ * It is intended to be used in conjunction with the ReportHelpers class.
+ *
+ * **Inheritance:** Utils → FulcrumHelpers → **FieldHelpers**
+ *
+ * **Extended by:** {@link ReportHelpers}
+ *
+ * **Inherited Methods:**
+ * - All {@link Utils} utility methods (see Utils documentation)
+ * - All {@link FulcrumHelpers} Fulcrum-specific methods (see FulcrumHelpers documentation)
+ *
+ * **Methods Defined in This Class:** Only field rendering and value formatting methods are documented below.
+ */
+class FieldHelpers extends FulcrumHelpers {
+  constructor(){
+    super()
+    this.html = ReportTemplateBlocks
+  }
+
+  /**
+   * @summary Checks Mfld for options.
+   *
+   * @description Checks if a field option string contains a specific option.
+   * Current options supported:
+   * -rdo = radio buttons instead of checkboxes
+   * -cb = choice boxes (checkboxes)
+   * -hcb = horizontal choice boxes
+   * -syn = short yes no (first letter only)
+   * -yon = yes no only (no neutral option)
+   * -na = replace null values with 'N/A' instead of '---'
+   * -hn = hide null values (do not display field if value is null)
+   *
+   * @param {string} opt - The option string (e.g., '-cb-hcb-rdo').
+   * @param {string} option - The option to check for (e.g., 'cb', 'hcb', 'rdo').
+   * @returns {boolean|null}
+   */
+  optionIs(opt = null, option = '') {
+    if (!opt || !option) return null;
+    return opt.indexOf(`-${option}`) >= 0 ? true : null;
+  }
+
+  /**
+   * @summary *Make Merjent Field*
+   * @description This function creates a Mfld object which possesess most of the properties as a fulcrum field with the addition of: span, opt
+   * @param {string} dn - Data name of the field.
+   * @param {number} [span=4] - Span value for the field.
+   * @param {string} [opt=null] - Option string for the field.
+   * @returns {Mfld} - Mfld object.
+   */
+  mkMfld(dn = '', span = 4, opt = null) {
+    // List of properties to copy from the Fulcrum field
+    const mfldProps_gen = ['label', 'key', 'description', 'data_name', 'hidden', 'parent'];
+    const mfldProps_number = ['numeric', 'format', 'min', 'max'];
+    const mfldProps_section = ['display'];
+    const mfldProps_YN = ['neutral_enabled', 'positive', 'negative', 'neutral'];
+    const mfldProps_choice = ['multiple', 'allow_other', 'choice_list_id', 'use_choice_list', 'choices'];
+    const mfldProps = mfldProps_gen.concat(mfldProps_number,mfldProps_section,mfldProps_YN,mfldProps_choice);
+
+    const newMfld = new Mfld;
+
+    const fld = FIELD(dn);
+    if (fld) {
+      for (const prop of mfldProps) {
+        if (prop in fld) {
+          if (prop !== 'parent') {
+            newMfld[prop] = fld[prop];
+          } else if (fld.parent &amp;&amp; fld.parent.data_name) {
+            newMfld[prop] = fld.parent.data_name;
+          }
+        }
+      }
+      // Copy type directly to _type (bypasses setter validation)
+      if (fld.type) {
+        newMfld._type = fld.type;
+      }
+      newMfld['span'] = span;
+      newMfld['opt'] = opt;
+      return newMfld;
+    } else {
+      newMfld.data_name = dn;
+      newMfld['span'] = span;
+      newMfld['opt'] = opt;
+      return newMfld;
+    }
+  }
+
+  /**
+   * @summary *Make Merjent Fields*
+   * @description make Mflds (array of Mfld)
+   *
+   * @param {{}} [arr=[]]
+   * @param {string} [opt=null]
+   * @param {number} [span=4]
+   * @returns {MfldColl}
+   */
+  mkMflds(arr = [], opt = null, span = 4, exc=[]) {
+    var out = new MfldColl;
+    exc = exc ? exc : []
+    for (var dn of arr) {
+      if(!exc.includes(dn)){
+        var obj = this.mkMfld(dn, span, opt);
+        out.push(obj);
+      }
+    }
+    return out;
+  };
+
+  /**
+   * @summary Deprecated
+   * @description Description placeholder
+   * @deprecated
+   *
+   * MUTATES existing array
+   * @param {MfldColl} mflds
+   * @param {string} [dn='']
+   * @param {string} [key='']
+   * @param {*} val
+   *
+   * @todo is this used anywhere? otherwise delete it.
+   */
+  spliceMflds(mflds, dn = '', key = '', val) {
+    var pos = 0;
+    mflds.forEach(function (Mfld, index) {
+      if (Mfld.data_name == dn) {
+        pos = index;
+      }
+    });
+    var obj = mflds[pos];
+    obj[key] = val;
+    mflds.splice(pos, 1, obj);
+  };
+
+  /**
+   * @summary *Field Value*
+   * @description This function returns the report HTML formatted value of a field. For null values default return is '---'.
+   * @param {(string|Mfld)} input - field to be formatted. It can be a string of a data_name or a Mfld object.
+   * @param {number} [i=null] - only used for repeatable values. index of the value in a repeatable field.
+   * @example fldVal('inspector_name') // returns the value of the inspector_name field
+   * @example fldVal('inspector_name', 0) // returns the value of the inspector_name field in the first repeatable section
+   * @returns {string} - An html string of the formatted value of the field.
+   */
+  fldVal(input, i = null) {
+    var mfld = Object.prototype.toString.call(input) === '[object Object]' ? input : this.mkMfld(input);
+    var dn = mfld.data_name;
+    //If value is from a repeatable
+    if (i != null  &amp;&amp; this.getRepDn(dn)) {
+      var parent = this.getRepDn(dn);
+      var val = !Utils.isBlank(REPEATABLEVALUES(VALUE(parent), dn)[i]) ? REPEATABLEVALUES(VALUE(parent), dn)[i] : null;
+      return this.getReportVal(dn, mfld, val);
+    }
+    //If value is from parent
+    var val = mfld.value ? mfld.value : null;
+    return this.getReportVal(dn,mfld,val);
+  };
+
+
+  /**
+   * @summary sub-function of fldVal
+   * @description Produces the html string of a field value based on its type and options after checking for repeatable values.
+   *
+   * @param {string} [dn='']
+   * @param {*} [mfld=null]
+   * @param {*} [val=null] - val only needed for repeatable values
+   * @returns {*} - html string
+   */
+  getReportVal(dn = '', mfld = null, val = null) {
+    // val = val ? val : VALUE(dn)
+    val = val || VALUE(dn);
+    var naVal = this.optionIs(opt,'na') ? 'N/A' : '---';
+
+
+    var opt = mfld &amp;&amp; mfld.opt ? mfld.opt : null;
+    var fldType = mfld &amp;&amp; mfld.type ? mfld.type : FIELDTYPE(dn);
+
+
+    if (fldType == 'ChoiceField' || fldType == "ClassificationField") {
+      if (this.optionIs(opt,'cb') == true || this.optionIs(opt,'hcb') == true) {
+        return this.choiceBoxes(mfld, val);
+      }
+      if (Utils.isBlank(val)) { return naVal; }
+      val = CHOICEVALUES(val) ? CHOICEVALUES(val)
+              :!Array.isArray(val) ? val.split(',') : [val]
+      return val.join(', ');
+    }
+    else if (fldType == 'YesNoField') {
+      return this.customynBox(mfld, val);
+    }
+    else if(Utils.isBlank(val)){
+      return naVal
+    }
+    else if (fldType == 'DateTimeField') {
+      // if (Utils.isBlank(val)) { return naVal; }
+      var dt = new Date(val);
+      return Utils.dt2iso(dt);
+    }
+    else if (fldType == 'TextField' || fldType == 'CalculatedField') {
+      return val
+      // return Utils.isBlank(val) ? naVal : val;
+    }
+    else if (fldType == 'AddressField') {
+      return this.formatAddress(val)
+      // return Utils.isBlank(val) ? naVal : this.formatAddress(val);
+    }
+    else if (fldType == 'TimeField') {
+      return val
+      // return Utils.isBlank(val) ? naVal : val;
+    }
+    else if (fldType == 'Repeatable') {
+      return 'ERROR in fldVal function: RepeatableField input';
+    }
+    else if (fldType == 'RecordLinkField') {
+      return 'ERROR in fldVal function: RecordLinkField input';
+    }
+    else if (fldType == 'Label' || fldType == 'Section' || fldType == 'PhotoField' || fldType == 'VideoField' || fldType == 'AudioField' || fldType == 'BarcodeField' || fldType == 'SignatureField' || fldType == 'HyperlinkField') {
+      return 'ERROR in fldVal function: Label, Section, PhotoField, VideoField, AudioField, BarcodeField, SignatureField, HyperlinkField input';
+    }
+    else {
+      return 'ERROR in fldVal function: Unknown error';
+    }
+    /**
+     * TODO: ADD SUPPORT FOR record link fields. This will require a new helper function to retrieve the linked record data.
+     * else if (fldType == 'RecordLinkField' ){}
+     */
+  };
+
+
+  /**
+   * @summary *Custiom Yes No Box*
+   * @description get custom yn field as appropriate
+   *
+   * opt = -syn | -yno | -rdo
+   * -syn  only first letter of label (or 3 if neutral)
+   *
+   * @todo Add option to color boxes green/red if yes/no
+   * @param {(string|Mfld)} input - Mfld. Checks neutral_enabled. opt = optionIsShortYN | optionIsYonly | optionIsRadio
+   * @param {*} [val=null] - val is only used for yn boxes in a repeatable
+   * @returns {string} - html string
+   */
+  customynBox(input, val = null) {
+    // Convert input to Mfld object if it's not already
+    var mfld = Object.prototype.toString.call(input) === '[object Object]' ? input : this.mkMfld(input);
+    const dn = mfld.data_name;
+
+    // Determine the value to use
+    val = val || VALUE(dn);
+
+    // Extract options from Mfld
+    const neutralEnabled = mfld.neutral_enabled || null;
+    const opt = mfld.opt || null;
+    const isAbbrev = opt ? this.optionIs(opt,'syn') : null;
+    const isYOnly = opt ? this.optionIs(opt,'yon') : false;
+    const inputType = opt &amp;&amp; this.optionIs(opt,'rdo') ? "radio" : "checkbox";
+
+    // Extract positive, negative, and neutral values and labels
+    const positiveLbl = isAbbrev ? mfld.positive.label.slice(0, 1) : mfld.positive.label;
+    const negativeLbl = isAbbrev ? mfld.negative.label.slice(0, 1) : mfld.negative.label;
+    const neutralLbl = isAbbrev ? mfld.neutral.label.slice(0, 3) : mfld.neutral.label;
+
+    // Determine which checkboxes should be checked
+    const isCheckedPositive = val == mfld.positive.value ? 'checked' : '';
+    const isCheckedNegative = val == mfld.negative.value ? 'checked' : '';
+    const isCheckedNeutral = val == mfld.neutral.value ? 'checked' : '';
+
+    // Create templates for the checkboxes
+    // var ynTemplate = `\
+    //   &lt;div class="checks">\
+    //     &lt;div>&lt;input type="${inputType}" ${isCheckedPositive}>&lt;/div>\
+    //     &lt;div>${positiveLbl}&lt;/div>\
+    //     &lt;div>&lt;input type="${inputType}" ${isCheckedNegative}>&lt;/div>\
+    //     &lt;div>${negativeLbl}&lt;/div>\
+    //   &lt;/div>`;
+
+    // var ynnaTemplate = `\
+    //   &lt;div class="checks">\
+    //     &lt;div>&lt;input type="${inputType}" ${isCheckedPositive}>&lt;/div>\
+    //     &lt;div>${positiveLbl}&lt;/div>\
+    //     &lt;div>&lt;input type="${inputType}" ${isCheckedNegative}>&lt;/div>\
+    //     &lt;div>${negativeLbl}&lt;/div>\
+    //     &lt;div>&lt;input type="${inputType}" ${isCheckedNeutral}>&lt;/div>\
+    //     &lt;div>${neutralLbl}&lt;/div>\
+    //   &lt;/div>`;
+
+    // var yOnlyTemplate = `\
+    //   &lt;div class="checks">\
+    //     &lt;div>&lt;input type="${inputType}" ${isCheckedPositive}>&lt;/div>\
+    //   &lt;/div>`;
+
+    // Return the appropriate template based on options
+    if (isYOnly) {
+      return this.html.yOnlyTemplate(inputType, isCheckedPositive);
+    }
+    if (neutralEnabled) {
+      return this.html.ynnaTemplate(inputType, isCheckedPositive, positiveLbl, isCheckedNegative, negativeLbl, isCheckedNeutral, neutralLbl);
+    }
+    return this.html.ynTemplate(inputType, isCheckedPositive, positiveLbl, isCheckedNegative, negativeLbl);
+  };
+
+  /**
+   * @summary Create list of checkboxes for choicevalues
+   * @description Creates an HTML string from a choice field with a list of checkboxes for choicevalues
+   *
+   * opts = -hcb
+   * -hcb is horizontal choiceboxes, default is vertical choiceboxes.
+   *
+   * @param {*} input
+   * @param {*} [val=null]
+   * @returns {string} - html string
+   */
+  choiceBoxes(input, val = null){
+    // Convert input to Mfld object if it's not already &amp; Determine the value to use
+    var mfld = Object.prototype.toString.call(input) === '[object Object]' ? input : this.mkMfld(input);
+    const dn = mfld.data_name;
+    val = val ? CHOICEVALUES(val) : CHOICEVALUES(VALUE(dn));
+
+    // Extract options from Mfld
+    const choices = mfld.choices;
+    const opt = mfld.opt || null;
+    const isHorizontal = opt &amp;&amp; this.optionIs(opt,'hcb') ? true : false;
+    const inputType = opt &amp;&amp; this.optionIs(opt,'rdo') ? "radio" : "checkbox";
+
+    let output = isHorizontal ? '&lt;div class="horizChoices">' : '&lt;div class="flex-col vstart">';
+
+    // Helper function to create a checkbox element
+    // const createCheckbox = (choice, isChecked) => `
+    //   &lt;div class="checks">\
+    //     &lt;div>&lt;input type="${inputType}" ${isChecked}>&lt;/div>\
+    //     &lt;div>${choice.label}&lt;/div>\
+    //   &lt;/div>`;
+
+
+    // Add checkboxes for each choice
+    for(const choice of choices) {
+      const isChecked = val &amp;&amp; val.includes(choice.value) ? "checked" : "";
+      output += this.html.createCheckbox(choice, isChecked, inputType);
+    };
+
+    if (mfld.allow_other == true) {
+      const otherValue = OTHER(VALUE(dn)) || '&amp;nbsp';
+      const isChecked = OTHER(VALUE(dn)) ? 'checked' : '';
+      // const otherHtml = `\
+      //   &lt;div class="checks">\
+      //     &lt;div>&lt;input type="${inputType}" ${isChecked}>&lt;/div>\
+      //     &lt;div>Other: &lt;/div>\
+      //     &lt;div style="margin-left:3px;">${otherValue}&lt;/div>\
+      //   &lt;/div>`;
+      output += this.html.otherHtml(otherValue, isChecked, inputType)
+    }
+    return output + '&lt;/div>';
+  };
+}
+
+// ============================================================================
+// Field data structures produced by FieldHelpers methods (mkMfld, mkMflds).
+// Declared below the class for readability; FieldHelpers methods reference
+// them at call-time, not at class-parse time, so forward declaration is fine.
+// ============================================================================
+
+/**
+ * @summary Constructor for Merjent Fulcrum field types
+ * @description Properties of Mfld are the same as Fulcrum field properties, except:
+ *     'parent' which is truncated to only the direct parent.
+ *     'span' and 'opt' are added to Fulcrum Field properties.
+ *
+ * @class
+ * @memberof FieldHelpers
+ * @param {Object} [fieldData={}] - Initial field data to populate the instance
+ * @property {string} label - All fields
+ * @property {string} key - All fields
+ * @property {string} description - All fields
+ * @property {string} data_name - All fields
+ * @property {boolean} hidden - All fields
+ * @property {string} parent - All fields - in Mfld this is stripped down to containing only the data_name of the direct parent
+ * @property {boolean|null} numeric - Numeric field
+ * @property {string|null} format - Numeric field (e.g., 'decimal')
+ * @property {string|null} min - Numeric field minimum value
+ * @property {string|null} max - Numeric field maximum value
+ * @property {string} display - Section display setting
+ * @property {boolean|null} neutral_enabled - YesNoField neutral option enabled
+ * @property {string|null} positive - YesNoField positive label (default: 'yes')
+ * @property {string|null} negative - YesNoField negative label (default: 'no')
+ * @property {string|null} neutral - YesNoField neutral label (default: 'n/a')
+ * @property {boolean|null} multiple - ChoiceField allow multiple selections
+ * @property {boolean|null} allow_other - ChoiceField allow other option
+ * @property {string|null} choice_list_id - ChoiceField choice list ID
+ * @property {boolean|null} use_choice_list - ChoiceField uses choice list
+ * @property {Array|null} choices - ChoiceField or ClassificationField choices array
+ * @property {number} span - Column span for layout (default: 4)
+ * @property {MfldOpt} opt - Mfld options for rendering
+ */
+class Mfld{
+  /**
+   * @summary Valid Fulcrum field types accepted by the `type` setter.
+   * @description Whitelist of field-type strings. Setting `Mfld.prototype.type`
+   * to a value outside this list throws an Error.
+   * @type {string[]}
+   */
+  static MfldTypes = [
+    "TextField", "YesNoField", "Label", "mLabel", "Section", "ChoiceField",
+    "ClassificationField", "PhotoField", "VideoField", "AudioField", "BarcodeField",
+    "DateTimeField", "TimeField", "Repeatable", "AddressField", "SignatureField",
+    "HyperlinkField", "CalculatedField", "RecordLinkField", "AttachmentField"
+  ];
+
+  // Common field properties
+  label = '';
+  _type = '';
+  key = '';
+  description = '';
+  data_name = '';
+  hidden = false;
+  parent = '';
+
+  // Numeric field properties
+  numeric = null;
+  format = null;
+  min = null;
+  max = null;
+
+  // Section properties
+  display = '';
+
+  // YesNoField properties
+  neutral_enabled = null;
+  positive = null;
+  negative = null;
+  neutral = null;
+
+  // ChoiceField properties
+  multiple = null;
+  allow_other = null;
+  choice_list_id = null;
+  use_choice_list = null;
+  choices = null;
+
+  // Mfld-specific properties
+  span = 4;
+  opt = '';
+
+  /**
+   * @param {Object} [fieldData={}] - Initial field data
+   */
+  constructor(fieldData = {}) {
+    // Assign all provided field data
+    Object.assign(this, fieldData);
+
+    // Initialize type-specific defaults if type is set
+    if (this._type) {
+      this._initializeTypeDefaults();
+    }
+  }
+
+  /**
+   * Initialize default values based on field type
+   * @private
+   */
+  _initializeTypeDefaults() {
+    switch(this._type) {
+      case "TextField":
+        if (this.numeric === null) this.numeric = false;
+        if (this.numeric &amp;&amp; this.format === null) this.format = 'decimal';
+        break;
+      case "YesNoField":
+        if (this.neutral_enabled === null) this.neutral_enabled = false;
+        if (this.positive === null) this.positive = 'yes';
+        if (this.negative === null) this.negative = 'no';
+        if (this.neutral === null) this.neutral = 'n/a';
+        break;
+      case "ChoiceField":
+        if (this.multiple === null) this.multiple = false;
+        if (this.allow_other === null) this.allow_other = false;
+        if (this.use_choice_list === null) this.use_choice_list = false;
+        if (this.choices === null) this.choices = [];
+        if (this.use_choice_list &amp;&amp; this.choice_list_id === null) this.choice_list_id = '';
+        break;
+      case "ClassificationField":
+        if (this.choices === null) this.choices = [];
+        break;
+    }
+  }
+
+  /**
+   * Get the field type
+   * @type {string}
+   */
+  get type() {
+    return this._type;
+  }
+
+  /**
+   * Set the field type with validation
+   * @type {string}
+   * @throws {Error} If type is not in the allowed types list
+   */
+  set type(value) {
+    if (!Mfld.MfldTypes.includes(value)) {
+      throw new Error(`Invalid type: ${value}. Must be one of: ${Mfld.MfldTypes.join(', ')}`);
+    }
+    this._type = value;
+    this._initializeTypeDefaults();
+  }
+}
+
+
+/**
+ * @summary Constructor for array of Mflds
+ * @description Array subclass that holds {@link Mfld} instances with enhanced array methods.
+ * It has the same methods as a standard array with the addition of the .m method.
+ * New MfldColl is created from mkMfld() method in {@link FieldHelpers}.
+ * @class
+ * @extends Array
+ * @memberof FieldHelpers
+ */
+class MfldColl extends Array {
+  constructor(...args) {
+    super(...args);
+  }
+
+  /**
+   * Find Mfld in MfldColl by data name.
+   * @param {string} dn - Data name of the field
+   * @returns {Mfld} The Mfld instance with matching data_name
+   * @example
+   * mflds.m('inspector_name').span = 6; // set span of inspector_name field to 6
+   */
+  m(dn) {
+    return this[this.findIndex(x => x.data_name === dn)];
+  }
+}
+//#endregion
+
+export { FieldHelpers,MfldColl,Mfld };
+</code></pre>
+		</section>
+			</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">Mtools Copyright © 2025 Mikel Paiva</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on 12th May 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<script src="js/deprecated.js"></script>
+	
+</body>
+</html>
+<!-- end:source.tmpl.hbs -->

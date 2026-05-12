@@ -1,0 +1,1278 @@
+<!-- start:source.tmpl.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>Mtools/ReportHelpers.js</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+			<link type="text/css" rel="stylesheet" href="css/deprecated.css">
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"Merjent Fulcrum Tools","systemSummary":"Version 0.5.11","systemLogo":"","systemColor":"","navMembers":[{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"class","title":"Classes","summary":"All documented classes. View inheritance chains in each class description."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"Mtools Copyright © 2025 Mikel Paiva","linenums":true,"collapseSymbols":true,"inverseNav":true,"inlineNav":false,"outputSourceFiles":false,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":true,"showAccessFilter":true,"analytics":null,"methodHeadingReturns":true,"sort":"lineage, longname","search":true,"favicon":null,"stylesheets":["css/deprecated.css"],"scripts":["js/deprecated.js"],"monospaceLinks":false,"cleverLinks":true,"default":{"outputSourceFiles":false}};
+			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					Merjent Fulcrum Tools
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="DataEventHelpers.html">DataEventHelpers</a></li>
+											<li><a href="DataEventHelpers.MLoadRecords.html">DataEventHelpers.MLoadRecords</a></li>
+											<li><a href="DataEventHelpers.MRequest.html">DataEventHelpers.MRequest</a></li>
+											<li><a href="FieldHelpers.html">FieldHelpers</a></li>
+											<li><a href="FieldHelpers.Mfld.html">FieldHelpers.Mfld</a></li>
+											<li><a href="FieldHelpers.MfldColl.html">FieldHelpers.MfldColl</a></li>
+											<li><a href="FulcrumHelpers.html">FulcrumHelpers</a></li>
+											<li><a href="MerjentApp.html">MerjentApp</a></li>
+											<li><a href="ReportHelpers.html">ReportHelpers</a></li>
+											<li><a href="ReportHelpers.SecOpt.html">ReportHelpers.SecOpt</a></li>
+											<li><a href="RequestHelpers.html">RequestHelpers</a></li>
+											<li><a href="Utils.html">Utils</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_module.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="module-MtoolsDataEvents.html">MtoolsDataEvents</a></li>
+											<li><a href="module-MtoolsMerjentApp.html">MtoolsMerjentApp</a></li>
+											<li><a href="module-MtoolsReports.html">MtoolsReports</a></li>
+											<li><a href="module-MtoolsUtils.html">MtoolsUtils</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_namespace.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="DefaultTemplate.html">DefaultTemplate</a></li>
+											<li><a href="LockingMixins.html">LockingMixins</a></li>
+											<li><a href="PermissionMixins.html">PermissionMixins</a></li>
+											<li><a href="PhotoMixins.html">PhotoMixins</a></li>
+											<li><a href="StatusMixins.html">StatusMixins</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_tutorial.html" class="dropdown-toggle" data-toggle="dropdown">Tutorials<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="tutorial-01_overview.html">01: Overview</a></li>
+											<li><a href="tutorial-02_mtools.html">02: Mtools for Data Events</a></li>
+											<li><a href="tutorial-03_mapp.html">03: MerjentApp (mApp)</a></li>
+											<li><a href="tutorial-04_pdf-reports.html">04: Mtools for PDF Reports</a></li>
+											<li><a href="tutorial-A1_mapp-cheat-sheet.html">A1: mApp Cheat Sheet</a></li>
+											<li><a href="tutorial-A2_mloadrecords.html">A2: MLoadRecords</a></li>
+											<li><a href="tutorial-A3_report-template-cheatsheet.html">A3: Report Template Cheat Sheet</a></li>
+											<li><a href="tutorial-B1_merjent-dev.html">B1: Development Guide</a></li>
+											<li><a href="tutorial-B2_general-dev.html">B2: General Development Resources</a></li>
+											<li><a href="tutorial-Z1_CHANGELOG.html">Changelog</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">source</span>
+				<h1><span class="name">Mtools/ReportHelpers.js</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">import { FieldHelpers,MfldColl,Mfld } from "./FieldHelpers";
+import { ReportTemplateBlocks } from "./ReportTemplateBlocks";
+import { Utils } from "./Utils";
+
+/**
+ * @summary Constructor for pdf report Section Header types
+ * @description Enter either a value for "center" or "data_name" NOT both. If both are entered, "center" will take precedence.
+ * If the section is part of a repeatable and "data_name" is used you must also enter the "rep_data_name" property.
+ *
+ * Options for center value property are: 'data_name', 'center', 'rep_data_name'
+ * @memberof ReportHelpers
+ * @class
+ * @param {string} [prefix=null] - Prefix of section header
+ * @param {string} [center=null] - Text for body of section header, overrides data_name and rep_data_name
+ * @param {string} [suffix=null] - Suffix of section header
+ * @param {boolean} [lblIndex=false] - Set to true and index included will be printed after prefix
+ * @property {boolean} [hide=false] - Set to true to hide section header
+ * @property {string} [data_name=''] - data name of section or field LABEL() will be used as body of section header
+ * @property {string} [rep_data_name=''] - data name of Repeatable, LABEL() will be used as body of section header
+ * @property {number} [index=null] - Index of repeatable section, will be calculated automatically by other methods if section is from a repeatable
+ * @property {string} [css='mjnt-sectionHeader spacer-top'] - CSS class for section header
+ * @property {ReportTemplateBlocks} htmlTemplates - Reference to ReportTemplateBlocks for HTML generation
+ */
+class SecOpt{
+   constructor(prefix=null,center=null,suffix=null,lblIndex=false){
+      this.hide=false
+      this.prefix=prefix
+      this.center=center
+      this.data_name=''
+      this.rep_data_name=''
+      this.suffix=suffix
+      this.lblIndex=lblIndex
+      this.index=null
+      this.css= 'mjnt-sectionHeader spacer-top'
+      this.htmlTemplates = ReportTemplateBlocks
+   }
+
+   /**
+    * @method
+    * @summary Gets the central text to display in a section header
+    * @returns {string}
+    */
+   getCenter=()=>{
+      return this.center ? this.center
+            : this.rep_data_name ? Utils.fVal(REPEATABLEVALUES(VALUE(this.rep_data_name), this.data_name)[this.index])
+            // : this.rep_data_name ? REPEATABLEVALUES(VALUE(this.rep_data_name), this.data_name)[this.index]
+               : this.data_name ? LABEL(this.data_name)
+                  : '';
+   }
+
+   /**
+    * @method
+    * @summary Returns full section header text
+    * @returns {string}
+    * 
+    */
+   text=()=>{
+      if(this.hide == true){return ''}
+      const prefix = this.prefix ? `${this.prefix} ` : '';
+      const center = this.getCenter();
+      const suffix = this.suffix ? `${this.suffix} ` : '';
+      const numLbl = this.lblIndex ? `${(this.index + 1).toString()}` : '';
+
+      return `${prefix}${center}${suffix}${numLbl}`;
+   }
+
+   /**
+    * @method
+    * @summary Returns styled html for section header
+    * @returns {string}
+    *
+    */
+   toHtml=()=>{
+      if(this.hide == true){return ''}
+      const secTxt = this.text();
+      const secCss = this.css
+      return this.htmlTemplates.sectionHeader(secCss, secTxt);
+   }
+
+   /**
+    * @method
+    * @summary Returns index number of repeatable section
+    * @returns {number}
+    */
+   getIndex=()=>{
+      return this.index;
+   }
+
+   /**
+    * @method
+    * @summary Check if property is a function or value and return value or result of function
+    * @param {string} str - property name
+    * @returns {*}
+    */
+   c=(str)=>{
+      var p = this[str];
+      return typeof p === 'function' ? this[str]()
+         : p ? p
+            : '';
+   }
+}
+
+//#region ******************************** REPORT HELPERS ************************************/
+/**
+ * @class ReportHelpers
+ * @extends FieldHelpers
+ * @summary Helper methods for producing Merjent pdf reports
+ * @description ReportHelpers class extends FieldHelpers with methods to build report sections and photo layouts.
+ *
+ * **Inheritance:** Utils → FulcrumHelpers → FieldHelpers → **ReportHelpers**
+ *
+ * This is the top-level class used by the M singleton in report modules.
+ *
+ * **Inherited Methods:**
+ * - All {@link Utils} utility methods (see Utils documentation)
+ * - All {@link FulcrumHelpers} Fulcrum-specific methods (see FulcrumHelpers documentation)
+ * - All {@link FieldHelpers} field rendering methods (see FieldHelpers documentation)
+ *
+ * **Methods Defined in This Class:** Only report generation and layout methods are documented below.
+ */
+
+class ReportHelpers extends FieldHelpers{
+   constructor() {
+      super()
+      this.htmlTemplates = ReportTemplateBlocks
+   }
+   // addCustomPhotoFlds = this.photoAddCustomFields
+   // addItemNo = this.photoAddItemNo
+   // buildPhotoObjFromRows = this.photoObjFromRows
+   // getChoices = this.choiceListRequest
+   // getDesc = this.buildDescription
+   // getFormCell = this.buildDefaultCell
+   // getFormFlds = this.formRequestSchema
+   // getFormRows = this.buildDefaultRows
+   // getPhotoGrid1x3 = this.buildPhotoGrid1x3
+   // getPhotoLoc = this.photoRequestMeta
+   // getPhotos = this.photosRequest
+   // getPhotoWraped = this.buildPhotoWrapper
+   // getRecords = this.recordsRequest
+   // getRepRecs = this.repRequestRecords
+   // getRLrecords = this.requestRLrecords
+   // getSigTime = this.buildSigTime
+   // getSimpleCell = this.buildSimpleCell
+   // getSimpleRows = this.buildSimpleRows
+   // getTaggedPhotos = this.photosRequestTagged
+   // makeMfldsFromFormJSON = this.schema2Mflds
+   // parseObj2Div = this.rows2Divs
+   // remPhotoPre = this.photoRemTag
+
+   /**
+    * @summary Converts paragraphs to html bullets
+    * @description Converts string to html list bullet points. Splits the input string by line breaks (handles both \n and \r\n). Filters out empty lines. Trims whitespace from each line
+    * @param {string} str
+    * @returns {string}
+    */
+   buildBullets(str) {
+      const lines = str.split(/\r?\n/).filter(line => line.trim() !== '');
+      const bulletPoints = lines.map(line => this.htmlTemplates.bulletItem(line.trim())).join('\n');
+
+      return this.htmlTemplates.bulletList(bulletPoints);
+   }
+
+   /**
+    * @summary Gets description text from field
+    * @description Returns description text from FIELD() if it exists, wrapped in italics tags and parentheses.
+    *
+    * @param {string} [dn='']
+    * @returns {string}
+    */
+   buildDescription(dn = '') {
+      return FIELD(dn).description ? this.htmlTemplates.description(FIELD(dn).description) : '';
+   };
+   
+   /**
+    * @summary Request choiclist options from Fulcrum API
+    * @description Get choicelist options from a refrenced fulcrum choicelist app if choices not located in app
+    *
+    * @param {string} [id=''] 
+    * @returns {string[]}
+    */
+   choiceListRequest(id = '') {
+      var options = { "url": "https://api.fulcrumapp.com/api/v2/choice_lists/" + id + ".json" };
+      var list = API('/choice_lists', options).choice_list;
+      var choices = list.choices;
+      return choices;
+   };
+
+   /**
+    * @summary Creates html string for a horizontal layout cell in Merjent default grid. 
+    * @description Creates html content for a single cell of grid using Merjent .grid-lo stylesheet. Without nesting within a surrounding div. 
+    * The label and value will be displayed horizontally instead of vertically.
+    *
+    * @param {(string|Mfld)} input - data name or Mfld
+    * @param {*} [i=null] 
+    * @returns {string} 
+    */
+   buildSimpleCell(input, i = null) {
+      var mfld = Object.prototype.toString.call(input) === '[object Object]' ? input : this.mkMfld(input);
+      const lbl = mfld.label;
+      const val = this.fldVal(mfld, i);
+
+      return this.htmlTemplates.lblVal(lbl, val);
+      // return `&lt;div>${ lbl}&lt;/div>&lt;div>${val}&lt;/div>`;
+   };
+
+   //! Set type property to 'mLabel' to print Label on pdf Label Field data name in order to print Label
+   /**
+    * @summary Creates html grid-rows for a horizontal layout cells in Merjent default grid.
+    * @description Creates html rows with the getSimpleCell() method. (ie: horizontal label/value)
+    * 
+    * If field is a label, the type property must be set to 'mLabel' in order to print on pdf.
+    * @param {Mfld} [mflds=[]] 
+    * @param {*} [i=null] 
+    * @returns {string} 
+    */
+   buildSimpleRows(mflds = [], i = null) {
+      const excludeTypes = ["Label", "Section", "PhotoField", "VideoField", "AudioField", "BarcodeField", "Repeatable", "SignatureField", "HyperlinkField", "RecordLinkField"];
+      let output = '';
+  
+      for (const mfld of mflds) {
+          const fldType = mfld.type || FIELDTYPE(mfld.data_name);
+  
+         //  if (mfld.type === 'mLabel') {
+         //      output += this.htmlTemplates.lblVal(mfld.label, this.fldVal(mfld, i));
+         //  } else if (!excludeTypes.includes(fldType)) {
+         //      output += this.buildSimpleCell(mfld, i);
+         //  }
+         if (!excludeTypes.includes(fldType)) {
+              output += this.buildSimpleCell(mfld, i);
+          }
+      };
+  
+      return output;
+  }
+
+
+   /**
+    * @summary Creates html for single Merjent default grid cell.
+    * @description create a single cell using Merjent .grid-lo stylesheet.
+    * 
+    * Span width and options are read from Mfld parameter.
+    *
+    * @param {(string|Mfld)} input 
+    * @param {*} [i=null] - i is only used if called within a repeatable loop
+    * @returns {string} 
+    */
+   buildDefaultCell(input, i = null) {
+      // Convert input to Mfld object if it's not already
+      const mfld = Object.prototype.toString.call(input) === '[object Object]' ? input : this.mkMfld(input);
+      const span = mfld.span || 1;
+      const lbl = mfld.label;
+      const val = this.fldVal(mfld, i);
+
+      // Create the output HTML
+      return this.htmlTemplates.defaultCell(lbl, val, span);
+      // return `\
+      //    &lt;div style="grid-column: span ${span}; white-space: pre-line;">\
+      //       &lt;div>${lbl}&lt;/div>\
+      //       &lt;div>${val}&lt;/div>\
+      //    &lt;/div>`;
+   };
+
+   
+   /**
+    * @summary Creates html grid-rows for a Merjent default grid.
+    * @description Populate rows of grid using Merjent .grid-lo .default stylesheet.
+    *
+    * @param {Mfld} [mflds=[]] 
+    * @param {*} [i=null]  - Only used mflds are from a Repeatable section
+    * @param {string[]} [exc=[]] - Array of data names to exclude from the grid
+    * @returns {string} 
+    */
+   buildDefaultRows(mflds = [], i = null, exc=[]) {
+      const excludeTypes = ["Label", "Section", "PhotoField", "VideoField", "AudioField", "BarcodeField", "Repeatable", "SignatureField", "HyperlinkField", "RecordLinkField"];
+      let output = '';
+  
+      for (const mfld of mflds) {
+         const opt = mfld &amp;&amp; mfld.opt ? mfld.opt : null;
+         const blank = this.optionIs(opt,'na') ? 'N/A' : '---'
+         const lbl = mfld.label;
+         const val = this.fldVal(mfld, i);
+         const span = mfld.span || 4;
+         const hideNull = this.optionIs(opt,'hn') &amp;&amp; val == blank ? true : null
+         const fldType = mfld.type || FIELDTYPE(mfld.data_name);
+         if(hideNull || excludeTypes.includes(fldType)){continue}
+
+         if(!exc.includes(mfld.data_name)){
+            if (mfld.type !== 'mLabel') {
+               output += this.buildDefaultCell(mfld, i);
+            }
+            if (mfld.type === 'mLabel') {
+               output += this.htmlTemplates.mLabelRow(lbl, val, span);
+            }
+               // output += `\
+               //       &lt;div style="font-style: italic; grid-column: span ${span}; white-space: pre-line;">\
+               //          &lt;div>${lbl}&lt;/div>\
+               //          &lt;div>${val}&lt;/div>\
+               //       &lt;/div>`;
+            // } else if (!excludeTypes.includes(fldType) ) {
+            //    output += this.buildDefaultCell(mfld, i);
+            // }
+         }
+      };
+  
+      return output;
+   }
+
+   /**
+    * @summary Get center portion of section header text.
+    * @description Gets the central text to display in a section header from a SecText object.
+    * 
+    * If there is a 'center' property it will be the value.
+    * If there is a 'rep_data_name' property it will be the value.
+    * Defaults to the LABEL(data_name)
+    *
+    * @deprecated Use SecOpt class and its getCenter() method instead.
+    * @param {SecOpt} secOpt 
+    * @param {*} index 
+    * @returns {string} 
+    * @todo replace existing usage
+    */
+   getSecCenter(secOpt, index) {
+      return secOpt.center ? secOpt.center
+         : secOpt.rep_data_name ? Utils.fVal(REPEATABLEVALUES(VALUE(secOpt.rep_data_name), secOpt.data_name)[index])
+            : secOpt.data_name ? LABEL(secOpt.data_name)
+               : '';
+   }
+
+    /**
+    * @description builds a SecOpt object based off an old style object
+    *
+    * @deprecated Use SecOpt class and its getCenter() method instead.
+    * @param {} obj - The object to convert to SecOpt
+    * @returns {SecOpt} 
+    */
+   obj2SecOpt(obj) {
+      var secOpt = new SecOpt();
+      for (const key in obj) {
+         if (Object.prototype.hasOwnProperty.call(secOpt, key)) {
+         secOpt[key] = obj[key];
+         }
+      }
+      return secOpt;
+   }
+
+   /**
+    * @description Constructs string for section header text
+    *
+    * @deprecated Use SecOpt class and its getCenter() method instead.
+    * @param {} secOpt - Either a SecOpt object or an old style object to be converted to SecOpt
+    * @param {number} [index=0] 
+    * @returns {string} 
+    * @todo replace existing usage
+    */
+   getSecTxt(secOpt, i = null) {
+      if(secOpt.hide == true){return ''}
+      const isSecOpt = secOpt instanceof SecOpt
+      if(!isSecOpt) {secOpt = this.obj2SecOpt(secOpt)}
+      secOpt.index = (secOpt.index == null) ? i : secOpt.index;
+      return secOpt.text()
+  }
+
+   /**
+    * @description Constructs html for section header from secOpt object. 
+    * For a non-repeatable use EITHER:
+    *  the 'data_name" property, to label after a section data name OR
+    * the 'center' property to manually enter a string for the section label.
+    * 
+    * @deprecated Use SecOpt class and its getCenter() method instead.
+    * @todo replace existing usage
+    * @param {SecOpt}secOpt
+    * @param {number} i - only for repeatables
+    * @returns {string} - html string.
+    * @example
+    * //To label this section of the report after a section in the app use the data name of the section
+    * {"data_name": "inspection_details"}
+    * 
+    * @example
+    * //To hardcode the section label to a text string use 'center' property instead
+    * {"center": "Inspection Details"}
+    * 
+    * 
+    * @example
+    * //Use 'prefix' and 'suffix' to hardcode additional text
+    * {"prefix":"Appendix: ", "center":"A - ", "suffix":"Observed Species"} //result = Appendix A - Observed Species
+    * {"prefix":VALUE('location') + ' - ', "data_name":"inspection_details"} //result = PL1 - Inspection Details
+    * 
+    * @example
+    * //Repeatable Examples    * 
+    * {"rep_data_name":"followup_reporting", "data_name": "date_identified"} //Section result = Follow-up Reporting, Subsection result = ${date_identified}
+    * {"rep_data_name":"follow-up reporting", "data_name": "date_identified", "suffix":" - ", "lblIndex":true} //Section result = Follow-up Reporting, Subsection result = ${date_identified} - ${i}
+    */
+   getSecHtml(secOpt = {}, i=null){
+      if(!secOpt || secOpt.hide == true){return ''}
+      const isSecOpt = secOpt instanceof SecOpt
+      if(!isSecOpt) {secOpt = this.obj2SecOpt(secOpt)}
+      secOpt.index = (secOpt.index == null) ? i : secOpt.index;
+      return secOpt.toHtml();
+   }
+
+   /**
+    * @description Builds yesNo section using Merjent .yn-col stylesheet. Input either Section data name or MfldColl.
+    *
+    * @deprecated Use SecOpt class and its getCenter() method instead.
+    * @todo replace existing usage
+    * @param {string} [dn='']
+    * @param {MfldColl} [mflds=[]]
+    * @param {{}} [secOpt={}]
+    * @returns {string}
+    */
+   buildYNSection(dn='',mflds=[], secOpt = {}) {
+      mflds = mflds.length ? mflds : this.mkMflds(FIELDNAMES(dn));
+      const divider = this.getSecHtml(secOpt);
+      const excludeTypes = ["Label", "Section", "PhotoField", "VideoField", "AudioField", "BarcodeField", "Repeatable", "SignatureField", "HyperlinkField", "RecordLinkField"];
+      let htmlRows = '';
+
+      for (const mfld of mflds) {
+         const fldType = mfld.type || FIELDTYPE(mfld.data_name);
+         if (excludeTypes.includes(fldType)) { continue; }
+
+         if (fldType === 'YesNoField') {
+            htmlRows += this.buildSimpleCell(mfld);
+         } else {
+            const lbl = mfld.label;
+            const val = this.fVal(VALUE(mfld.data_name));
+            const blank = val === '---' || val === '' || val === null || val === undefined;
+            if (!blank) {
+               htmlRows += this.htmlTemplates.noteDivCell(lbl, val, 2);
+            }
+         }
+      }
+
+      return this.htmlTemplates.ynSection(divider, htmlRows);
+   }
+
+   /**
+    * @summary Build an entire grid section using Merjent .grid-lo .default stylesheet. 
+    * @description Input section data name or MfldColl.
+    * 
+    * buildDefaultSection > [mkMflds] > getSecHtml > getFormRows
+    * @param {string} dn - The data name of the section. If not provided, it will be determined from the field names.
+    * @param {MfldColl} mflds - An array of field objects to be included in the section. If not provided, it will be determined from the field names.
+    * @param {Object} secOpt - An optional object containing section options such as prefix, suffix, and other display settings.
+    * @returns {string} - The HTML string representing the section. 
+    */
+   buildDefaultSection(dn = '', mflds = [], secOpt = null) {
+      mflds = mflds.length ? mflds : this.mkMflds(FIELDNAMES(dn));
+      const dnSec = new SecOpt(null,LABEL(dn),null)
+      const hiddenSec = new SecOpt(null,null,null)
+      hiddenSec.hide = true
+      const divider = secOpt=='hide' ? this.getSecHtml(hiddenSec) :
+                        secOpt == null ? this.getSecHtml(dnSec) :
+                           this.getSecHtml(secOpt);
+      const htmlRows = this.buildDefaultRows(mflds);
+      return this.htmlTemplates.defaultSection(divider, htmlRows);
+   }
+
+   /**
+    * @summary Build an entire grid section using Merjent .grid-lo .default stylesheet.
+    * @description Input a repeatable section data name
+    * 
+    * buildRepeatableSubsec > [mkMflds] > getSecHtml > getFormRows
+    * @param {string} repDn='' - The data name of the repeatable section.
+    * @param {MfldColl} mflds=[] - mflds to include in the section.
+    * @param {{}} [secOpt={}] 
+    * @param {string[]} [exc=[]] - Array of data names to exclude from the grid
+    * @returns {string} 
+    */
+   buildRepeatableSubsec(repDn = '', mflds = [], secOpt = {},exc=[],css='') {
+      const vals = VALUE(repDn) || null;
+      if (!vals || vals.length &lt; 1) return '';
+
+      let out = '';
+      for (var i = 0; i &lt; vals.length; i++) {
+         secOpt.index = i;
+         const divider = this.getSecHtml(secOpt, i);
+         const htmlRows = this.buildDefaultRows(mflds,i,exc);
+         out += this.htmlTemplates.repeatableSubsec(divider, htmlRows, css);
+      }
+      return out;
+   };
+
+   /**
+    * @summary Request photos with a caption beginning with '#'
+    * @description Request to pull only photos with a caption beginning with '#'
+    *
+    * Use this to create photoOarr for input into buildPhotoSec() method.
+    * @param {{}} [recIDs=['']] 
+    * @param {string} [appID=''] 
+    * @param {string} [photoDn='photos'] 
+    * @returns {*} 
+    */
+   photosRequestTagged(recIDs = [''], appID = '', photoDn = 'photos') {
+      var result = QUERY(`SELECT _record_id, _status, unnest(${photoDn}) as photo_id, unnest(${photoDn}_captions) as caption 
+         FROM "${appID}" 
+         WHERE _record_id = ANY('{${recIDs.join(',')}}');`).rows;
+      var photos = result.filter(x => x.caption &amp;&amp; x.caption[0] == '#');
+      return photos;
+   };
+
+   /**
+    * @summary Retrieves photos from a specified application based on record IDs.
+    * @description This function constructs a SQL query to select photos and their captions from a specified application, filtering by record IDs.
+    * @param {string[]} recIDs - Array of record IDs to retrieve photos for.
+    * @param {String} appID - The ID of the application from which to retrieve photos.
+    * @param {String} photoDn - The data name of the photo field in the application.
+    * @param {String} [orderDn=null] - The data name of the field to order the results by. If null, no ordering is applied.
+    * @param {String} [qFlds=''] - Other columns to return, ie _record_id, _status
+    * @returns {Array} - An array of photo objects, each containing photo_id and caption.
+    */
+   photosRequest(recIDs,appID,photoDn,orderDn=null,qFlds=''){
+      const order = orderDn ? ` ORDER by ${orderDn}` : ''
+      // const flds = qFlds ? qFlds + ', ' : ``
+      const flds = qFlds ? qFlds : `*`
+      const q = `SELECT ${flds}unnest(${photoDn}) as photo_id, unnest(${photoDn}_captions) as caption 
+      FROM "${appID}" 
+      WHERE _record_id = ANY('{${recIDs.join(',')}}') 
+      ${order};`
+
+      // WHERE _record_id IN ('${recIDs}')
+
+      return QUERY(q).rows;
+   }
+
+   /**
+    * @summary Request records from array of _record_id(s).
+    * 
+    * @param {string[]} recIDs - Array of record IDs to retrieve.
+    * @param {String} appID - The ID of the application from which to retrieve records.
+    * @param {String} [orderDn=null] - The data name of the field to order the results by. If null, no ordering is applied.
+    * @param {String} [qFlds=null] - Other columns to return, ie _record_id, _status
+    * @returns {JSON[]} - An array of JSON objects representing the records.
+    */
+   recordsRequest(recIDs,appID,orderDn=null,qFlds=null){
+      const order = orderDn ? ` ORDER by ${orderDn}` : '' 
+      const flds = qFlds ? qFlds : `*`
+      const q = `SELECT ${flds} 
+      FROM "${appID}" 
+      WHERE _record_id = ANY('{${recIDs.join(',')}}') 
+      ${order};`
+
+      // WHERE _record_id IN ('${recIDs}')
+      // WHERE _record_id = ANY('{${recIDs.join(',')}}') 
+
+      return QUERY(q).rows;
+   }
+
+   /**
+    * @summary Request records from repeatable from array of _record_ids.
+    * @description Query uses inner join to match parent and child records.
+    * 
+    * @param {*} recIDs 
+    * @param {*} appID 
+    * @param {*} repID 
+    * @param {*} parentDns 
+    * @param {*} childDns 
+    * @param {*} orderDn 
+    * @returns {}
+    */
+   repRequestRecords(recIDs,appID,repID,parentDns=null,childDns=null,orderDn=null){
+      const order = orderDn ? ` ORDER by ${orderDn}` : ''
+      const ptDns = parentDns ? `PT._record_id, ${parentDns}, ` : `PT._record_id `
+      const chDns = childDns ? `CH._child_record_id, ${childDns} ` : `CH._child_record_id `
+      const q = `SELECT ${ptDns} ${chDns} 
+      FROM "${appID}" 
+      PT INNER JOIN "${appID}/${repID}" CH ON PT._record_id = CH._record_id 
+      WHERE CH._record_id = ANY('{${recIDs.join(',')}}') 
+      ${order};`
+
+      return QUERY(q).rows;
+   }
+
+   /**
+    * @summary Build html divs for table headers.
+    * @param {string[]} dns
+    * @returns {string}
+    * @todo change to buildTableHeaders
+    */
+   makeTableHeaders(dns){
+      var output = ''
+      for (const dn of dns){
+         output = output + this.htmlTemplates.tableHeader(LABEL(dn))
+      }
+      return output
+   }
+
+   /**
+    * @summary Rename child OR parent data_names for SQL query
+    * @description Adds 'CH.' to beginning of each data_name in array. Also adds 'PT.' to beginning of each dataname if addCH is false.
+    * Returns string of data_names for SQL query using INNERJOIN on a repeatable.
+    * @param {*} dns 
+    * @param {boolean} addCH - true = add 'CH.' prefix, false = add 'PT.' prefix
+    * @returns {string}
+    */
+   addCH(dns,addCH=true){
+      const pre = addCH == true ? 'CH.' : 'PT.'
+      const output = dns.map(x=>pre + x)
+      return output.join(', ')
+   }
+
+   /**
+    * @summary Request form schema from Fulcrum API.
+    * @description Retrieves form fields from a specified application using the Fulcrum API.  
+    * @param {*} appID 
+    * @returns {}
+    * @todo use QERY instead of GET request to pull form schema from system table
+    */
+   formRequestSchema(appID){
+      const url = `https://api.fulcrumapp.com/api/v2/forms/${appID}.json?schema=true`;
+      const options = {
+         method: 'GET',
+         headers: {
+            Accept: 'application/json',
+            'X-ApiToken': mToken
+         }
+      };
+      var response = GET(url,options)
+      if(!response.form.elements){return response}
+      
+      const elements = response.form.elements
+      var output = []
+      for (const element of elements){
+         if(element.elements){
+            const parent = element.data_name
+            const subEl = element.elements
+            subEl.forEach((x)=>x.parent = parent)
+            output = output.concat(subEl)
+         }
+         else{
+            output.push(element)
+         }
+      }
+      return output
+   }
+
+   /**
+    * @summary Create MfldColl from form schema and array of data names.
+    * 
+    * @param {*} appFlds 
+    * @param {*} dns 
+    * @returns {MfldColl}
+    */
+   schema2Mflds(appFlds,dns=null){
+      var mFlds = M.mkMflds([])
+      dns = dns ? dns : appFlds.map(x=>x.data_name)
+      appFlds = appFlds.filter((x)=> dns.includes(x.data_name))
+      appFlds.forEach((x)=>mFlds.push(x))
+      mFlds.forEach((x)=>x.span = 4)
+      mFlds.forEach((x)=>x.opt ='')
+      return mFlds
+   }
+
+   /**
+    * @summary Retrieves the location information of a photo based on its photo_id.
+    * @description buildPhotoSection > getPhotoGrid1x3 > getPhotoWraped > getPhotoLoc
+    * 
+    * @param {string} photo_id - The unique identifier of the photo.
+    * @returns {Object} - An object containing the latitude, longitude, direction, and created_at date of the photo. If any of these values are not available, they will be set to '---'.
+    * @usedby getPhotoWraped - Wraps a photo object in HTML for display.
+    * @usedby buildPhotoSection then getPhotoGrid1x3 then getPhotoWraped then getPhotoLoc
+    */
+   photoRequestMeta(photo_id = ''){
+      const output = {};
+      const locQuery = QUERY("SELECT record_id, latitude, longitude, direction, created_at, exif FROM photos WHERE photo_id = '" + photo_id + "'");
+      const row = locQuery.rows[0] || {};
+    
+      output.lat = row.latitude ? row.latitude.toFixed(4) + '\xB0' : '---';
+      output.lon = row.longitude ? row.longitude.toFixed(4) + '\xB0' : '---';
+      output.dir = row.direction ? row.direction.toFixed(2) + '\xB0' : '---';
+      // //add second query to use photo record_id to get date from record that photo is associated with
+      output.date = '---'
+      if(row &amp;&amp; row.exif){
+         const exif = JSON.parse(row.exif)
+         if(exif){
+            output.date = exif?.date_time_original?.split('T')[0]
+         }
+      }
+      
+      return output;
+   };
+
+   /**
+    * @summary Adds photo number/label field to JSON rows.
+    * @description addItemNo > buildPhotoObjFromRows > buildPhotoSection > getPhotoGrid1x3 > getPhotoWraped > getPhotoLoc
+    * @param {Array} rows - A array of JSON rows returned from https request.
+    * @param {string} fldName - The data name of the photo field to add to rows and enumerate.
+    * @returns void - Mutates existing rows
+    */
+   photoAddItemNo(rows, fldName = 'item_no') {
+      for (let i = 0; i &lt; rows.length; i++) {
+         rows[i][fldName] = i + 1;
+      }
+   }
+
+   /**
+    * @summary Builds a photo object from a https response.
+    * @description buildPhotoObjFromRows > buildPhotoSection > getPhotoGrid1x3 > getPhotoWraped > getPhotoLoc
+    * @param {Array} recs - A array of JSON rows returned from https request.
+    * @param {string} dn - The data name of the photo field in the rows.
+    * @param {string} [photoLbl='item_no'] - The field name in rows that contains the photo number/label.
+    * @returns {Object} - An object formatted as a fulcrum photo field object.
+    * 
+    */
+   photoObjFromRows(recs, dn, photoLbl = 'item_no') {
+      const output = [];
+      for (let index = 0; index &lt; recs.length; index++) {
+         const rec = recs[index];
+         if (rec &amp;&amp; rec[dn]) {
+         const photoNumLbl = index + 1;
+         const capDn = dn + '_captions';
+         for (let i = 0; i &lt; rec[dn].length; i++) {
+            const obj = {};
+            obj.photo_id = rec[dn][i];
+            obj.caption = rec[capDn] ? rec[capDn][i] : '';
+            obj[photoLbl] = rec[photoLbl] ? rec[photoLbl].toString() : photoNumLbl.toString();
+            output.push(obj);
+         }
+         }
+      }
+      return output;
+   }
+
+   /**
+    * @summary Builds a photo section with a grid layout for displaying photos in a report.
+    * @description buildPhotoSection > getPhotoGrid1x3 > getPhotoWraped > getPhotoLoc
+    * @param {Array} photoOarr - An array of photo objects, each containing photo_id and caption properties.
+    * @param {Object} secOpt - An optional object containing section options such as prefix, suffix, and other display settings.
+    * @param {Object|boolean} [opts={}] - Caption options object, or boolean for legacy addXtra mode
+    * @param {number} [firstpg=3] - The index of where to page break on the first page of photos. Default is 3.
+    * @returns {string} - The HTML string representing the photo section.
+    */
+   buildPhotoSection(photoOarr = [], secOpt = {}, opts = {}, firstpg = 3) {
+      // Legacy shim: old signature was (photoOarr, secOpt, addXtra, label, firstpg)
+      if (typeof opts === 'boolean') {
+         opts = { addXtra: opts, labelField: arguments[3] || null };
+         firstpg = arguments[4] || 3;
+      }
+      var out = '';
+      if (photoOarr &amp;&amp; photoOarr.length > 0) {
+         const baseCss = secOpt.css || 'mjnt-sectionHeader';
+         secOpt.css = baseCss.includes('spacer-bottom') ? baseCss : baseCss + ' spacer-bottom';
+         const divider = this.getSecHtml(secOpt);
+         var htmlPhotos = this.buildPhotoGrid1x3(photoOarr, secOpt, opts, firstpg);
+         out = this.htmlTemplates.photoSectionClump(divider, htmlPhotos);
+      }
+      return out;
+   };
+
+   /**
+    * @Summary Build photo section from photos in repeatable
+    * @description buildRepeatablePhotos > getPhotoGrid1x3 > getPhotoWraped > getPhotoLoc
+    *
+    * @param {string} [repDn='']
+    * @param {string} [photoDn='']
+    * @param {{}} [secOpt={}]
+    * @param {Object|boolean} [opts={}] - Caption options object, or boolean for legacy addXtra mode
+    * @param {number} [firstpg=3] - Page break index for the first page of photos
+    * @param {*} [callback=null] - function to add fields to photo caption
+    * @returns {string}
+    */
+   buildRepeatablePhotos(repDn = '', photoDn = '', secOpt = {}, opts = {}, firstpg = 3, callback = null) {
+      // Legacy shim: old signature was (repDn, photoDn, secOpt, addXtra, label, firstpg, callback)
+      if (typeof opts === 'boolean') {
+         opts = { addXtra: opts, labelField: arguments[4] || null };
+         firstpg = arguments[5] || 3;
+         callback = arguments[6] || null;
+      }
+      var out = '';
+      if (REPEATABLEVALUES(VALUE(repDn), photoDn)) {
+         out = '&lt;div class="clump">';
+         for (var i = 0; i &lt; VALUE(repDn).length; i++) {
+            var photoOarr = REPEATABLEVALUES(VALUE(repDn), photoDn)[i];
+            if (photoOarr) {
+               if (callback) {
+                  callback(photoOarr, repDn, i);
+               }
+               secOpt.rep_data_name = repDn;
+               secOpt.index = i;
+               const divider = this.getSecHtml(secOpt, i);
+               out = out + divider;
+               var htmlOut = this.buildPhotoGrid1x3(photoOarr, secOpt, opts, firstpg);
+               out = out + htmlOut;
+            }
+         }
+         out = out + '&lt;/div>';
+      }
+      return out;
+   };
+
+   /**
+    * @summary Removes # and ! from prefix of photo caption.
+    * @description Removes # and ! from prefix of photo caption.
+    * @param {string} val - Input caption string.
+    * @returns {string} - The modified caption without the prefix.
+    */
+   photoRemTag(val){
+      if(!val) return '';
+      var output = val;
+      if(val.slice(0,1) == '#'){
+         output = val.slice(1)
+      }
+      if(val.slice(1,2) == '!'){
+         output = val.slice(2)
+      }
+      return output
+   }
+
+   /**
+    * @summary Generates 1x3 photo grid.
+    * @description Generates a 1x3 photo grid layout for displaying photos in a report.
+    * @param {Array} photoOarr - An array of photo objects, each containing photo_id and caption properties.
+    * @param {Object} secOpt - An optional object containing section options such as prefix, suffix, and other display settings.
+    * @param {Object|boolean} [opts={}] - Caption options object, or boolean for legacy addXtra mode
+    * @param {number} [firstpg=3] - The index of where to page break on the first page of photos. Default is 3.
+    * @returns {string} - The HTML string representing the 1x3 photo grid layout
+    */
+   buildPhotoGrid1x3(photoOarr = [{}], secOpt = {}, opts = {}, firstpg = 3) {
+      // Legacy shim: old signature was (photoOarr, secOpt, addXtra, label, firstpg)
+      if (typeof opts === 'boolean') {
+         opts = { addXtra: opts, labelField: arguments[3] || null };
+         firstpg = arguments[4] || 3;
+      }
+      if (photoOarr) {
+         const baseCss = secOpt.css || 'mjnt-sectionHeader';
+         secOpt.css = baseCss.includes('spacer-bottom') ? baseCss : baseCss + ' spacer-bottom';
+         const headerHidden = secOpt.hide == true ? true : false;
+         var content = '';
+         for (let i = 0; i &lt; photoOarr.length; i++) {
+            if(!headerHidden){
+               if ((i == firstpg)) {
+                  content += this.htmlTemplates.photoContinuedHeader(secOpt.css, this.getSecTxt(secOpt), true);
+               }
+               if (i > firstpg &amp;&amp; (i - firstpg) % 3 == 0) {
+                  content += this.htmlTemplates.photoContinuedHeader(secOpt.css, this.getSecTxt(secOpt), false);
+               }
+            }
+            var photoObj = photoOarr[i];
+            content += this.buildPhotoWrapper(photoObj, opts);
+         };
+         return this.htmlTemplates.photoGrid1x3(content);
+      }
+      if (!photoOarr) {
+            return `&lt;div style="text-align:left">---&lt;/div>`;
+      }
+   }
+
+   /**
+    * @summary Returns html string of addon photo fields.
+    * @description Loop through additional addon photo properties and add to description. Ignores photo_id and caption properties.
+    * 
+    * Called from within getPhotoWraped to add additional custom fields besides caption to photo description if any are present.
+    *
+    * @param {{}} [photoObj={}] 
+    * @returns {string} - html string of added photo text 
+    */
+   photoAddCustomFields(photoObj = {}, photoLblFld = 'item_no') {
+    const keys = Object.keys(photoObj).filter(key => key !== 'photo_id' &amp;&amp; key !== 'caption' &amp;&amp; key !== photoLblFld);
+    return keys.map(key => this.htmlTemplates.photoCustomField(Utils.dn2Title(key), Utils.fVal(photoObj[key]))).join('');
+   }
+
+   /**
+    * @summary Assembles ordered caption rows for a photo wrapper.
+    * @description Builds an HTML string of caption rows based on the opts config.
+    * Each row type (label, location, description, date, direction, fields) is built
+    * into a map, then assembled in the order specified by opts.order.
+    *
+    * @param {Object} photoObj - Photo object with photo_id, caption, and optional fields
+    * @param {Object} photoLoc - Location metadata from photoRequestMeta (lat, lon, dir, date)
+    * @param {Object} opts - Caption configuration options
+    * @returns {string} HTML string of assembled caption rows
+    */
+   buildCaptionRows(photoObj, photoLoc, opts) {
+      const defaults = {
+         labelField: 'item_no',
+         showDate: false,
+         showLocation: true,
+         showDirection: false,
+         showDescription: true,
+         fields: [],
+         order: ['label', 'date', 'location', 'direction', 'description', 'fields'],
+         addXtra: false
+      };
+      const cfg = { ...defaults, ...opts };
+
+      const rowMap = {};
+
+      // Label row
+      if (cfg.labelField &amp;&amp; photoObj[cfg.labelField]) {
+         const lbl = Utils.dn2Title(cfg.labelField.replace(/_/g, ' '));
+         rowMap.label = this.htmlTemplates.photoCustomField(lbl, photoObj[cfg.labelField]);
+      }
+
+      // Location row
+      if (cfg.showLocation) {
+         rowMap.location = `&lt;div>&lt;span>Location:&amp;nbsp&lt;/span>&lt;span>${photoLoc.lat}, ${photoLoc.lon}&lt;/span>&lt;/div>`;
+      }
+
+      // Description row (always included for backwards compatibility)
+      if (cfg.showDescription) {
+         const cap = Utils.fVal(this.photoRemTag(photoObj.caption)) || '';
+         rowMap.description = `&lt;div>&lt;span>Description:&amp;nbsp&lt;/span>&lt;span>${cap}&lt;/span>&lt;/div>`;
+      }
+
+      // Date row
+      if (cfg.showDate) {
+         rowMap.date = `&lt;div>&lt;span>Date:&amp;nbsp&lt;/span>&lt;span>${photoLoc.date}&lt;/span>&lt;/div>`;
+      }
+
+      // Direction row
+      if (cfg.showDirection) {
+         rowMap.direction = `&lt;div>&lt;span>Direction:&amp;nbsp&lt;/span>&lt;span>${photoLoc.dir}&lt;/span>&lt;/div>`;
+      }
+
+      // Explicit extra fields
+      if (cfg.fields.length > 0) {
+         const fieldRows = cfg.fields.map(f => {
+            if (typeof f === 'string') {
+               const lbl = Utils.dn2Title(f.replace(/_/g, ' '));
+               return this.htmlTemplates.photoCustomField(lbl, Utils.fVal(photoObj[f]));
+            }
+            return this.htmlTemplates.photoCustomField(f.label, Utils.fVal(f.value));
+         }).join('');
+         rowMap.fields = fieldRows;
+      }
+
+      // Legacy addXtra dump
+      if (cfg.addXtra) {
+         rowMap.fields = (rowMap.fields || '') + this.photoAddCustomFields(photoObj, cfg.labelField);
+      }
+
+      // Assemble in order
+      return cfg.order.map(key => rowMap[key] || '').join('');
+   }
+
+   /**
+    * @summary Constructs html for one photo with caption.
+    * @description Constructs html for one photo with caption and descriptive text.
+    * Accepts an options object to control which caption rows appear and in what order.
+    *
+    * @param {Object} [photoObj={}] - Photo object with photo_id, caption, and optional fields
+    * @param {Object|boolean} [opts={}] - Caption options object, or boolean for legacy addXtra mode
+    * @param {string} [opts.labelField='item_no'] - Field name for the label row
+    * @param {boolean} [opts.showLocation=true] - Include lat/lon row
+    * @param {boolean} [opts.showDate=false] - Include EXIF date row
+    * @param {boolean} [opts.showDirection=false] - Include compass direction row
+    * @param {Array} [opts.fields=[]] - Extra field rows: [{label, value}] or ['field_dn', ...]
+    * @param {string[]} [opts.order] - Row render order: ['label','location','description','date','direction','fields']
+    * @param {boolean} [opts.addXtra=false] - Legacy: dump all remaining photoObj keys
+    * @returns {string} HTML string for the photo wrapper
+    */
+   buildPhotoWrapper(photoObj = {}, opts = {}) {
+      // Legacy shim: old signature was (photoObj, addXtra, photoLblFld)
+      if (typeof opts === 'boolean') {
+         opts = { addXtra: opts, labelField: arguments[2] || 'item_no' };
+      }
+
+      const photoLoc = this.photoRequestMeta(photoObj.photo_id);
+      const captionHtml = this.buildCaptionRows(photoObj, photoLoc, opts);
+
+      return this.htmlTemplates.photoWrapper(PHOTOURL(photoObj.photo_id), captionHtml);
+  }
+
+   /**
+    * @summary Creates photo object from fields.
+    * @description Extracts Photo related properties from an Object (ie: row from Fulcrum Request) and creates a photo object array.
+    * 
+    * Use this before buildPhotoSection to create a photo array object to input.
+    *
+    * @param {string} [dn=''] - dn of field containing JSON array of data values (ie: summary records from datalink field)
+    * @param {string} [dn=''] - dn in objDn containing photo_id values
+    * @param {{}} [addOnFlds=['']] 
+    * @returns {{}} 
+    * 
+    * @todo find if this is used anywhere. Change so input is rows instead of dn.
+    */
+  parsePhotoObj(inputDn = '', dn = '', addOnFlds = ['']) {
+    const output = [];
+    if (VALUE(inputDn)) {
+      const capFld = dn + '_captions';
+      const objArr = JSON.parse(VALUE(inputDn));
+      for (const row of objArr) {
+        if (row[dn] !== undefined) {
+          const photoSet = row[dn];
+          for (let idx = 0; idx &lt; photoSet.length; idx++) {
+            const photoObj = {
+              photo_id: row[dn][idx],
+              caption: row[capFld] ? row[capFld][idx] : ''
+            };
+            if (addOnFlds) {
+              for (const addonDn of addOnFlds) {
+                if (row[addonDn] !== undefined) {
+                  photoObj[addonDn] = row[addonDn];
+                }
+              }
+            }
+            output.push(photoObj);
+          }
+        }
+      }
+    }
+    return output;
+  }
+
+
+   /**
+    * @summary Constructs html of object values separated by divs.
+    * @description Construct html of values from a obj. Input object and array of property names. Output values separated by divs.
+    * Optionally can display secified fields as a full width "notes" row if notes and notesSpan parameters are set.
+    * @param {Object[]} rows - Array of row objects containing the data
+    * @param {string[]} [dns=['']] - Array of property names to extract from each row
+    * @param {string[]} [notes=[]] - Array of property names that should be formatted as notes
+    * @param {number} [notesSpan=1] - Number of columns a note should span
+    * @param {string} [naVal='---'] - Value to display when data is undefined
+    * @returns {string} HTML string of div elements
+    */
+   rows2Divs(rows, dns = [''], notes = [], notesSpan = 1, naVal = '---') {
+      return rows
+         .map(row => dns
+            .map(dn => {
+               const isNote = notes.includes(dn);
+               const value = row[dn];
+               const spanStyle = isNote ? ` style="grid-column:span ${notesSpan}"` : '';
+
+               if (value !== undefined) {
+                  return isNote
+                     ? this.htmlTemplates.noteDivCell(Utils.dn2Title(dn), Utils.fVal(value), notesSpan)
+                     : this.htmlTemplates.divCell(Utils.fVal(value), spanStyle);
+               } else {
+                  return this.htmlTemplates.divCell(naVal, spanStyle);
+               }
+            })
+            .join('')
+         )
+         .join('');
+   }
+
+   /**
+    * @summary Find photo number in caption and place in separate field.
+    * @description Remove Photo Number from Caption and place in separate field while also stripping photo number from Caption.
+    * Photo number must be the first n characters of caption followed by a delimmeter that can be specified in the paramaters
+    *
+    * @param {{photo_id:string,caption:string}} photoOarr - photo Object array
+    * @param {string} delimmiter - string separating photo number from remainder of caption
+    * @param {string} [numFld='photo_number'] - Label for add on Photo Number Label field, must be in "data name" format. ie(photo_number)
+    * @example
+    * &lt;%
+    *    var photoFld_dn = 'photos'
+    *    var sitePhotos = VALUE(photoFld_dn)
+    *    caption2Number(sitePhotos,'.') //first characters of caption must be an identifier followed by '.'
+    * >%
+    * &lt;%-
+    *    M.buildPhotoSection(sitePhotos,{"prefix":"Appendix","center":$appendix},false,'photo_number')
+    * %>
+    */
+   caption2Number(photoOarr,delimmiter,numFld='photo_number'){
+      function stripPhotoNumber(cap,delimmiter){
+        if(cap){
+          var del = cap.indexOf(delimmiter)
+          if(del > -1){
+            return cap.slice(0,del)
+          } else { return cap }
+        } else {return ''}
+      }
+    
+      for (const photo of photoOarr){
+        var newCap = stripPhotoNumber(photo.caption,delimmiter)
+        var capStart = newCap.length + delimmiter.length
+        photo[numFld] = M.padZero(newCap,3)
+        if(photo.caption &amp;&amp; capStart &lt; 5){
+          var newDes = photo.caption.slice(capStart).trim()
+          photo.caption = newDes
+        }
+      }
+    }
+
+
+    /**
+     * @summary Not sure
+     * @description Description placeholder
+     *
+     * @deprecated Probably not needed any more.
+     * @todo what is this used for?
+     * @param {string} formID 
+     * @param {Array&lt;{record_id:string}>} vals - array of record_id
+     * @param {Array} flds - array of data_names
+     * @param {string} orderDn - data_name of field to sort by
+     * @returns {*} 
+     */
+   requestRLrecords(formID,vals,flds,orderDn){
+      function getIDs(vals) {
+         if (!vals || vals.length === 0) return [];
+         return !Array.isArray(vals) ? vals
+                  : Object.prototype.toString.call(vals[0]) === '[object Object]' ? vals.map(x => x.record_id)
+                     : vals
+      }
+      
+      const order = orderDn ? ` ORDER BY ${orderDn}` : ''
+      const qFlds = flds ? '_record_id, ' + flds.join(', ') : '*'
+      const ids = getIDs(vals).join('\',\'')
+
+      const q = `SELECT ${qFlds} 
+      FROM "${formID}" 
+      WHERE _record_id IN ('${ids}')
+      ${order};`
+
+      const result = ids.length > 0 ? QUERY(q, {format: 'json'}) : {"rows":[]}
+      return result.rows
+   }
+
+
+   /**
+    * @summary Constructs html signature timestamp into two lines of date and time.
+    * @description Description placeholder
+    *
+    * @returns {string}
+    */
+   buildSigTime(dn){
+      const val = VALUE(dn)
+      const input = val.timestamp.split('Z')[0]
+      const dt = input.split('T')[0]
+      const time = input.split('T')[1]
+      return this.htmlTemplates.sigTime(dt, time);
+   }
+}
+//#endregion
+
+
+export { MfldColl,Mfld,SecOpt,ReportHelpers}</code></pre>
+		</section>
+			</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">Mtools Copyright © 2025 Mikel Paiva</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on 12th May 2026 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<script src="js/deprecated.js"></script>
+	
+</body>
+</html>
+<!-- end:source.tmpl.hbs -->
